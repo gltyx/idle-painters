@@ -117,7 +117,7 @@
                             <div ng-show=isCurrentPictureFinished()>
                                 <div class=row>
                                     <div class="text-center col-sm-6 col-sm-offset-3">
-                                        <button class="btn btn-success improve-button" ng-click=doNextPictureLevel() type=button>提高图像质量到 {{getPictureLevel(getCurrentPictureId()) + 1}}</button>
+                                        <button class="btn btn-success improve-button doUpgrade" ng-click=doNextPictureLevel() type=button>提高图像质量到 {{getPictureLevel(getCurrentPictureId()) + 1}}</button>
                                     </div>
                                     <div class="col-sm-3 text-right" ng-if=isPictureQualityImproverActive()>
                                         <button class="btn btn-info btn-sm improve-button" ng-click=pictureAutoImproveSwitchState() type=button ng-class="{'active':isPictureAutoImproveActive()}">自动提高 <span ng-if=isPictureAutoImproveActive()>in {{pictureAutoImproveTimeRemain()}}s</span><span ng-if=!isPictureAutoImproveActive()>关闭</span></button>
@@ -169,7 +169,7 @@
                                 <uibm-progressbar max="shopCtr.getPictureSpeedUpNextLevel($index) - shopCtr.getPictureSpeedUpPrevLevel($index)" value="getPictureLevel($index) - shopCtr.getPictureSpeedUpPrevLevel($index)" class=animate-fade ng-show=shopCtr.isBought($index) type=success>{{getPictureLevel($index)}}</uibm-progressbar>
                                 <td ng-class="{'tutorial-highlight': $index == 1 && isTutorialStepNameHighlight('pic2buy2')}">
                                     <button class="btn btn-default" ng-click=shopCtr.doBuy($index) type=button ng-disabled=!shopCtr.canBuy($index) ng-if="!shopCtr.isBought($index) && $index > 0 && getPictureLevel($index - 1) > 0">购买消耗 ${{shopCtr.pictureList[$index].buyPrice | bignum:2}}</button> <span class=animate-fade ng-show=shopCtr.isBought($index)>画作质量 {{getPictureLevel($index)}}<span ng-if="getCurrentPictureId() == $index"> (完成度达到{{shopCtr.paintedPercentRemain()}}%以增加画作质量)</span> <span ng-if="getPictureLevel($index) > 0"><br>价格 ${{shopCtr.getPictureSellPrice($index) | bignum:2}}<br></span>
-                                    <button class="btn btn-default btn-xs" ng-click=shopCtr.startSellingPicture($index) type=button ng-class="{'tutorial-highlight': $index == 0 && isTutorialStepNameHighlight('sell1')}" ng-if=shopCtr.showSellButton($index)>出售</button>
+                                    <button class="btn btn-default btn-xs doSell" ng-click=shopCtr.startSellingPicture($index) type=button ng-class="{'tutorial-highlight': $index == 0 && isTutorialStepNameHighlight('sell1')}" ng-if=shopCtr.showSellButton($index)>出售</button>
                                     <div ng-if="!isSmallCanvas && shopCtr.showSellProgress($index)"><span class=pull-left>出售进度:</span>
                                         <uibm-progressbar max=shopCtr.getSellTimeTotal($index) value=shopCtr.getSellTimeFromStart($index)>{{shopCtr.getSellTimeFromStartFormatted($index)}} / {{shopCtr.getSellTimeTotalFormatted($index)}}</uibm-progressbar>
                                     </div>
