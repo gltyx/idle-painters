@@ -1673,7 +1673,7 @@
                 finishFnc: function () {
                     return 0 < b.achievementsLevel[C.achClicker]
                 },
-                text: "点击画布，来绘制你第一幅画的素描。",
+                text: "点击画布，来绘制你第一幅画的草图。",
                 highlightElements: !0
             }, {
                 name: "1stAch",
@@ -1725,7 +1725,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "注意这个成就。 它允许您关闭游戏，并确保您的助手将继续处理您的照片，以提高其质量。 一旦你支持你或你的经理将能够出售改进的图片。",
+                text: "注意这个成就。 它允许您关闭游戏，并确保您的助手将继续处理您的画作，以提高其质量。 你返回后，你或你的经理将能够出售改进后的画作。",
                 highlightElements: !0
             }, {
                 name: "layer1AfterAch",
@@ -1777,7 +1777,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "现在草图已经完成了。 你看到了什么魔法？ 简单的画笔不仅可以在您点击的位置绘制新像素，还可以在该点附近绘制新像素。<br/>现在让我们绘制更多细节。",
+                text: "现在草图已经完成了。你看到了魔法吗？ 简易画笔不仅可以在您点击的位置绘制新像素，还可以在该点附近绘制新像素。<br/>现在让我们绘制更多细节。",
                 highlightElements: !0
             }, {
                 name: "layer2finish",
@@ -1790,7 +1790,7 @@
                 finishFnc: function () {
                     return 2 == A()
                 },
-                text: "继续点击以绘制所有详细信息。",
+                text: "继续点击以绘制所有细节。",
                 highlightElements: !1
             }, {
                 name: "layer3",
@@ -1803,7 +1803,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "您已经绘制了所有细节。 现在让我们在图片中着色！",
+                text: "您已经绘制了所有细节。 现在让我们在画作中着色！",
                 highlightElements: !0
             }, {
                 name: "layer3finish",
@@ -1816,7 +1816,7 @@
                 finishFnc: function () {
                     return b.picturesFinished[0]
                 },
-                text: "继续点击以完成此图片。",
+                text: "继续点击以完成此画作。",
                 highlightElements: !1
             }, {
                 name: "pictureFinish",
@@ -1829,7 +1829,7 @@
                 finishFnc: function () {
                     return "Shop" == t
                 },
-                text: "恭喜！ 你已经完成了第一张照片。 现在我们去商店试图卖掉这张照片。",
+                text: "恭喜！ 你已经完成了第一张画作。 现在我们去商店卖掉这幅画。",
                 highlightElements: !0
             },
             {
@@ -1843,7 +1843,7 @@
                 finishFnc: function () {
                     return !1 !== b.pictureSellTime[0]
                 },
-                text: '点击“出售”按钮制作此图片的副本并出售。',
+                text: '点击“出售”按钮制作此画作的副本并出售。',
                 highlightElements: !0
             }, {
                 name: "pic1lvl2",
@@ -1856,7 +1856,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: "太好了！ 当你在等待你的照片出售时，让它变得更好，这样你就可以卖掉出 <b><i>更高价格</i></b>. 点击工作台",
+                text: "太好了！ 当你在等待你的画作出售时，让它变得更好，这样你就可以卖出 <b><i>更高的价格</i></b>. 点击画室",
                 highlightElements: !0
             }, {
                 name: "pic1lvl2up",
@@ -1869,7 +1869,7 @@
                 finishFnc: function () {
                     return 0 == A()
                 },
-                text: '点击“将图片质量提高到2”按钮。',
+                text: '点击“将画作质量提高到2”按钮。',
                 highlightElements: !0
             }, {
                 name: "pic1lvl2finish",
@@ -1882,7 +1882,7 @@
                 finishFnc: function () {
                     return 2 <= b.pictureLevel[0] && 0 < b.money
                 },
-                text: "再次绘制所有3个图层，然后等到图片出售。",
+                text: "再次绘制所有3个图层，然后等到画作出售。",
                 highlightElements: !1
             }, {
                 name: "upgrade",
@@ -1908,7 +1908,7 @@
                 finishFnc: function () {
                     return Ma(1)
                 },
-                text: "购买一个魔术刷。",
+                text: "购买一个魔术画笔。",
                 highlightElements: !0
             }, {
                 name: "magicBrushBought",
@@ -1921,7 +1921,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: '现在你有魔术刷。 它比简单的刷子强得多，但它使用了更多的油漆。 切换到“工作室”并尝试使用新的魔术刷改善图片。',
+                text: '现在你有魔术画笔。 它比简易画笔强得多，但它使用了更多的油漆。 切换到“画室”并尝试使用新的魔术画笔改善画作。',
                 highlightElements: !0
             }, {
                 name: "paintBucket",
@@ -1934,7 +1934,7 @@
                 finishFnc: function () {
                     return !I()
                 },
-                text: '使用魔术刷，你应该检查多少油漆。 如果油漆桶是空的，你就不能使用魔术刷。 油漆量自动补充。 要增加油漆桶容量和补货速度，请使用“升级”选项卡。<br/>现在单击“将图片质量提高到......”按钮。',
+                text: '使用魔术画笔前，你应该检查你还剩下多少油漆。 如果油漆桶是空的，你就不能使用魔术画笔。 油漆量会自动补充。 要增加油漆桶容量和补油漆速度，请使用“升级”选项卡。<br/>现在单击“将图片质量提高到......”按钮。',
                 highlightElements: !0
             }, {
                 name: "selectMagicBrush",
@@ -1948,7 +1948,7 @@
                     return 1 ==
                         b.currentBrush
                 },
-                text: "您可以使用这些按钮更改当前画笔。 选择魔术刷。",
+                text: "您可以使用这些按钮更改当前画笔。 选择魔术画笔。",
                 highlightElements: !0
             }, {
                 name: "pic1lvl3",
@@ -1961,7 +1961,7 @@
                 finishFnc: function () {
                     return 3 <= b.pictureLevel[0] && 200 <= b.money
                 },
-                text: "绘制这张图片，卖掉它并赚取200元继续教程。",
+                text: "绘制这张画作，卖掉它并赚取200元继续教程。",
                 highlightElements: !1
             }, {
                 name: "pic1lvl3finish",
@@ -2039,7 +2039,7 @@
                 finishFnc: function () {
                     return b.workerParams[0].active
                 },
-                text: "这是你的第一个助手 - 学生画家。 现在他不活跃了。 单击相应的“活动”按钮或将其拖放到另一个位置以激活他。 这个帮助者可以在他的起点周围绘制一部分图片，当他完成它时他会停下来。 继续绘画在另一点激活他。 之后你可以雇佣一名助手，他可以从任何一点开始绘制全貌。 你也可以升级这个助手，让他画更大的部分。 现在激活这个助手。",
+                text: "这是你的第一个助手 - 学生画家。 现在他处于不活跃状态。 单击相应的“激活”按钮或将其拖放到另一个位置以激活他。 这个助手可以在以他为起点的周围绘制一部分图片，当他完成它时他会停下来。 如果要让它继续绘画，就要在另一个地方激活他。 之后你可以雇佣另一名助手，他可以从任何一点开始绘制整幅画作。 你也可以升级这个助手，让他能画更大的部分。 现在激活这个助手。",
                 highlightElements: !0
             }, {
                 name: "tutorialEnd",
@@ -2052,7 +2052,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "恭喜！ 你已经完成了教程！<br/>不要忘记检查油漆量，如果你不能画或油漆它可能是因为你没有足够的油漆; 等待油漆补充。<br/>请记住你的刷子和帮手使用多少油漆，必要时切换或停用它们。<br/>如果你有足够的钱，他们可以出售你的副本 图片甚至离线。<br/>您现在可以自己玩了。 祝你好运，玩得开心点！",
+                text: "恭喜！ 你已经完成了教程！<br/>不要忘记检查油漆量，如果你不能画，可能是因为你没有足够的油漆; 等待油漆补充。<br/>请记住你的画笔和助手使用多少油漆，必要时切换或停用它们。<br/>如果你有足够的钱，可以雇佣一个经理，他们可以出售你的副本画作，即使在离线的时候。<br/>您现在可以自己玩了。 祝你好运，玩得开心点！",
                 highlightElements: !0
             }],
         Xb = aa.length,
