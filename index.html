@@ -147,7 +147,7 @@
                                                 <button class="btn btn-default" ng-click=switchWorkerActivity($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerParams()[$index].active}>激活</button>
                                                 <br>
                                                 <button class="btn btn-default" ng-click=startCancelChangingWorkerPos($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerSettingNewPos()[$index]}>设置位置</button>
-                                            </div><span ng-if=isWorkerBought($index)>{{getWorkerStrength($index) / getWorkerDrawInterval($index) | bignum:0:3}} pixels/sec<br>{{getWorkerConsumptionPerSec($index) | bignum:3:3}} 颜料/秒</span>
+                                            </div><span ng-if=isWorkerBought($index)>{{getWorkerStrength($index) / getWorkerDrawInterval($index) | bignum:0:3}} 像素/秒<br>{{getWorkerConsumptionPerSec($index) | bignum:3:3}} 颜料/秒</span>
                                             <br>
                                             <br>
                                         </div>
@@ -271,20 +271,20 @@
                                                         <button class="btn btn-default" ng-click="upgCtr.workerUpgradeEfficiency($index, 100)" type=button ng-disabled=!upgCtr.isWorkerEfficiencyUpgradeable($index)>+100</button>
                                                     </div>
                                                     <tr>
-                                                        <td><b>Drawing speed level {{workerParams()[$index].drawIntervalLevel}}</b>
-                                                            <br>Makes {{1 / getWorkerDrawInterval($index) | bignum:3:3}} actions/second
-                                                            <br><i>升级后: {{1 / upgCtr.getWorkerDrawNextInterval($index) | bignum:3:3}} actions/second</i>
+                                                        <td><b>绘制速度级别 {{workerParams()[$index].drawIntervalLevel}}</b>
+                                                            <br>进行 {{1 / getWorkerDrawInterval($index) | bignum:3:3}} 动作/秒
+                                                            <br><i>升级后: {{1 / upgCtr.getWorkerDrawNextInterval($index) | bignum:3:3}} 动作/秒</i>
                                                             <br>
                                                             <div class="btn-group btn-group-sm" role=group>
                                                                 <button class="btn btn-default" ng-click=upgCtr.workerUpgradeDrawInterval($index) type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeDrawIntervalPrice($index) | bignum:2}}</button>
                                                                 <button class="btn btn-default" ng-click="upgCtr.workerUpgradeDrawInterval($index, 10)" type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>+10</button>
                                                                 <button class="btn btn-default" ng-click="upgCtr.workerUpgradeDrawInterval($index, 100)" type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>+100</button>
                                                             </div>
-                                                            <td><span ng-if="getWorkerAreaSize($index) == 0"><b>Area size:</b> whole picture</span> <span ng-if="getWorkerAreaSize($index) > 0"><b>Area size level {{workerParams()[$index].areaSizeLevel}}</b><br>Area size {{getWorkerAreaSize($index)}} pixels<br><i>升级后: {{upgCtr.getWorkerAreaNextSize($index)}} pixels</i><br><div class="btn-group btn-group-sm" role=group><button class="btn btn-default" ng-click=upgCtr.workerUpgradeAreaSize($index) type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeAreaSizePrice($index) | bignum:2}}</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 10)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+10</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 100)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+100</button></div></span>
+                                                            <td><span ng-if="getWorkerAreaSize($index) == 0"><b>区域尺寸:</b> 整个画面</span> <span ng-if="getWorkerAreaSize($index) > 0"><b>区域尺寸等级 {{workerParams()[$index].areaSizeLevel}}</b><br>区域尺寸 {{getWorkerAreaSize($index)}} 像素<br><i>升级后: {{upgCtr.getWorkerAreaNextSize($index)}} 像素</i><br><div class="btn-group btn-group-sm" role=group><button class="btn btn-default" ng-click=upgCtr.workerUpgradeAreaSize($index) type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeAreaSizePrice($index) | bignum:2}}</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 10)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+10</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 100)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+100</button></div></span>
                                                                 <tr ng-if=upgCtr.isWorkerExpStrengthActive($index)>
-                                                                    <td colspan=2><b>Exponential strength level {{workerParams()[$index].expStrengthLevel}}</b>
-                                                                        <br>Increases the strength every action on {{getWorkerExpStrength($index) | bignum:0:3}} pixels
-                                                                        <br><i>升级后: {{upgCtr.getWorkerExpStrengthNextSize($index) | bignum:0:3}} pixels</i>
+                                                                    <td colspan=2><b>指数强度等级 {{workerParams()[$index].expStrengthLevel}}</b>
+                                                                        <br>增加了每一个动作的强度 {{getWorkerExpStrength($index) | bignum:0:3}} 像素
+                                                                        <br><i>升级后: {{upgCtr.getWorkerExpStrengthNextSize($index) | bignum:0:3}} 像素</i>
                                                                         <br>
                                                                         <div class="btn-group btn-group-sm" role=group>
                                                                             <button class="btn btn-default" ng-click=upgCtr.workerUpgradeExpStrength($index) type=button ng-disabled=!upgCtr.isWorkerExpStrengthUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeExpStrengthPrice($index) | bignum:2}}</button>
