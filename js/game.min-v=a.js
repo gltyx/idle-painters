@@ -591,7 +591,7 @@
 
     function ad() {
         var a = ka();
-        return null == a ? "" : Ub() ? "Click on the " + a.activeTabName + " tab." : a.text
+        return null == a ? "" : Ub() ? "点击 " + cnText(a.activeTabName) + " 菜单。" : a.text
     }
 
     function bd() {
@@ -1126,7 +1126,7 @@
             if (Z) {
                 if (3E3 < b) return a.isSaveTextVisible = !1, "glyphicon-floppy-disk";
                 a.isSaveTextVisible = !0;
-                a.saveText = "Saved!";
+                a.saveText = "已保存!";
                 return "glyphicon-floppy-saved"
             }
             a.isSaveTextVisible = !0;
@@ -1660,7 +1660,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: "At first you have an empty canvas, a simple brush and a small bucket of paint. Click the 1st canvas to start painting your first picture.",
+                text: "起初你有一个空的画布，一个简单的画笔和一小桶油漆。 单击第一个画布以开始绘制第一张照片。",
                 highlightElements: !0
             }, {
                 name: "layer1",
@@ -1673,7 +1673,7 @@
                 finishFnc: function () {
                     return 0 < b.achievementsLevel[C.achClicker]
                 },
-                text: "Click the canvas to draw a sketch of your first picture.",
+                text: "单击画布以绘制第一张照片的草图。",
                 highlightElements: !0
             }, {
                 name: "1stAch",
@@ -1686,7 +1686,7 @@
                 finishFnc: function () {
                     return "clickTabAchievements" == b.tutorial.lastClickEvent
                 },
-                text: "Congratulations, you've earned your first achievement! Click the Achievements tab to see your achievements.",
+                text: "恭喜你，你已经获得了你的第一个成就！ 单击“成就”选项卡以查看您的成就。",
                 highlightElements: !0
             }, {
                 name: "achSuperClicker",
@@ -1699,7 +1699,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: 'You\'ve earned the "Super Clicker" achievement for <span class="num">10</span> clicks. Your clicks are now 2x times stronger! Click more to increase this further.',
+                text: '您已获得<span class ="num"> 10 </span>次点击的“超级点击者” 成就。 您的点击效果x2！ 继续点击可进一步增加此值。',
                 highlightElements: !0
             }, {
                 name: "achOther",
@@ -1712,7 +1712,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "Watch this page for your progression for each achievement. Each achievement gives you valuable boosts.",
+                text: "观看此页面了解每项成就的进展情况。 每项成就都会为您带来宝贵的提升。",
                 highlightElements: !0
             }, {
                 name: "achQualImpr",
@@ -1725,7 +1725,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "Pay attention to this achievement. It allows you to close the game and be sure that your helpers will continue working on your picture to improve its quality. Once you back you or your manager will be able to sell an improved picture.",
+                text: "注意这个成就。 它允许您关闭游戏，并确保您的助手将继续处理您的照片，以提高其质量。 一旦你支持你或你的经理将能够出售改进的图片。",
                 highlightElements: !0
             }, {
                 name: "layer1AfterAch",
@@ -1738,7 +1738,7 @@
                 finishFnc: function () {
                     return "clickTabWorkshop" == b.tutorial.lastClickEvent
                 },
-                text: "Click the Workshop tab to get back to your workshop and to continue drawing.",
+                text: "单击Workshop选项卡返回您的工作室并继续绘图。",
                 highlightElements: !0
             }, {
                 name: "layer1progress",
@@ -1751,7 +1751,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "Here you can see the progress of the current picture layer. Now you are drawing the sketch and can see how many pixels should be drawn to proceed to the next picture layer.",
+                text: "在这里，您可以看到当前图片层的进度。 现在您正在绘制草图，并且可以看到应绘制多少像素以进入下一个图片层。",
                 highlightElements: !0
             }, {
                 name: "layer1finish",
@@ -1764,7 +1764,7 @@
                 finishFnc: function () {
                     return 1 == A()
                 },
-                text: "Continue clicking the canvas to finish the sketch.",
+                text: "继续单击画布以完成草图。",
                 highlightElements: !1
             }, {
                 name: "layer2",
@@ -1777,7 +1777,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "Now the sketch is finished. Did you see some magic? The simple brush can draw new pixels not only where you click but also around that point.<br/>Now let's draw more details.",
+                text: "现在草图已经完成了。 你看到了什么魔法？ 简单的画笔不仅可以在您点击的位置绘制新像素，还可以在该点附近绘制新像素。<br/>现在让我们绘制更多细节。",
                 highlightElements: !0
             }, {
                 name: "layer2finish",
@@ -1790,7 +1790,7 @@
                 finishFnc: function () {
                     return 2 == A()
                 },
-                text: "Continue clicking to draw all details.",
+                text: "继续点击以绘制所有详细信息。",
                 highlightElements: !1
             }, {
                 name: "layer3",
@@ -1803,7 +1803,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "You have drawn all the details. Now let's color in the picture!",
+                text: "您已经绘制了所有细节。 现在让我们在图片中着色！",
                 highlightElements: !0
             }, {
                 name: "layer3finish",
@@ -1816,7 +1816,7 @@
                 finishFnc: function () {
                     return b.picturesFinished[0]
                 },
-                text: "Continue clicking to finish this picture.",
+                text: "继续点击以完成此图片。",
                 highlightElements: !1
             }, {
                 name: "pictureFinish",
@@ -1829,7 +1829,7 @@
                 finishFnc: function () {
                     return "Shop" == t
                 },
-                text: "Congratulations! You have finished your 1st picture. Now let's go to the Shop and try to sell this picture.",
+                text: "恭喜！ 你已经完成了第一张照片。 现在我们去商店试图卖掉这张照片。",
                 highlightElements: !0
             },
             {
@@ -1843,7 +1843,7 @@
                 finishFnc: function () {
                     return !1 !== b.pictureSellTime[0]
                 },
-                text: 'Click the "Sell" button to make a copy of this picture and sell it.',
+                text: '点击“出售”按钮制作此图片的副本并出售。',
                 highlightElements: !0
             }, {
                 name: "pic1lvl2",
@@ -1856,7 +1856,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: "Great! While you are waiting for your picture to be sold let's make it better so you can sell it for a <b><i>higher price</i></b>. Click the Workshop.",
+                text: "太好了！ 当你在等待你的照片出售时，让它变得更好，这样你就可以卖掉出 <b><i>更高价格</i></b>. 点击工作台",
                 highlightElements: !0
             }, {
                 name: "pic1lvl2up",
@@ -1869,7 +1869,7 @@
                 finishFnc: function () {
                     return 0 == A()
                 },
-                text: 'Click the "Improve the picture quality to 2" button.',
+                text: '点击“将图片质量提高到2”按钮。',
                 highlightElements: !0
             }, {
                 name: "pic1lvl2finish",
@@ -1882,7 +1882,7 @@
                 finishFnc: function () {
                     return 2 <= b.pictureLevel[0] && 0 < b.money
                 },
-                text: "Draw all the 3 layers again and then wait until your picture is sold.",
+                text: "再次绘制所有3个图层，然后等到图片出售。",
                 highlightElements: !1
             }, {
                 name: "upgrade",
@@ -1895,7 +1895,7 @@
                 finishFnc: function () {
                     return "Upgrades" == t
                 },
-                text: 'Very good! Now switch to the "Upgrades" tab.',
+                text: '很好！ 现在切换到“升级”选项卡。',
                 highlightElements: !0
             }, {
                 name: "magicBrush",
@@ -1908,7 +1908,7 @@
                 finishFnc: function () {
                     return Ma(1)
                 },
-                text: "Buy a Magic brush.",
+                text: "购买一个魔术刷。",
                 highlightElements: !0
             }, {
                 name: "magicBrushBought",
@@ -1921,7 +1921,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: 'Now you have the Magic brush. It is much stronger than the simple brush, but it uses much more paint. Switch to the "Workshop" and try to improve the picture using the new magic brush.',
+                text: '现在你有魔术刷。 它比简单的刷子强得多，但它使用了更多的油漆。 切换到“工作室”并尝试使用新的魔术刷改善图片。',
                 highlightElements: !0
             }, {
                 name: "paintBucket",
@@ -1934,7 +1934,7 @@
                 finishFnc: function () {
                     return !I()
                 },
-                text: 'Using the magic brush you should check how much paint is left. If the paint bucket is empty you can\'t use the magic brush. The amount of paint is replenished automatically. To increase the paint bucket capacity and the speed of replenishment use the "Upgrades" tab.<br/>Now click the "Improve the picture quality to ..." button.',
+                text: '使用魔术刷，你应该检查多少油漆。 如果油漆桶是空的，你就不能使用魔术刷。 油漆量自动补充。 要增加油漆桶容量和补货速度，请使用“升级”选项卡。<br/>现在单击“将图片质量提高到......”按钮。',
                 highlightElements: !0
             }, {
                 name: "selectMagicBrush",
@@ -1948,7 +1948,7 @@
                     return 1 ==
                         b.currentBrush
                 },
-                text: "You can use these buttons to change your current brush. Select the magic brush.",
+                text: "您可以使用这些按钮更改当前画笔。 选择魔术刷。",
                 highlightElements: !0
             }, {
                 name: "pic1lvl3",
@@ -1961,7 +1961,7 @@
                 finishFnc: function () {
                     return 3 <= b.pictureLevel[0] && 200 <= b.money
                 },
-                text: "Draw this picture, sell it and earn $200 to continue the tutorial.",
+                text: "绘制这张图片，卖掉它并赚取200元继续教程。",
                 highlightElements: !1
             }, {
                 name: "pic1lvl3finish",
@@ -1974,7 +1974,7 @@
                 finishFnc: function () {
                     return "Upgrades" == t
                 },
-                text: 'You can hire helpers to increase the drawing speed. Switch to the "Upgrades" tab to do it.',
+                text: '您可以雇佣助手来提高绘图速度。 切换到“升级”选项卡进行操作。',
                 highlightElements: !0
             }, {
                 name: "helper1",
@@ -1987,7 +1987,7 @@
                 finishFnc: function () {
                     return la(0)
                 },
-                text: 'Hire a "Student painter" to help you.',
+                text: '聘请“学生画家”来帮助你。',
                 highlightElements: !0
             }, {
                 name: "pic2buy",
@@ -2000,7 +2000,7 @@
                 finishFnc: function () {
                     return "Shop" == t
                 },
-                text: 'Now switch to the "Shop" tab.',
+                text: '现在切换到“商店”标签。',
                 highlightElements: !0
             }, {
                 name: "pic2buy2",
@@ -2013,7 +2013,7 @@
                 finishFnc: function () {
                     return 0 === b.pictureLevel[1]
                 },
-                text: "Buy the 2nd canvas.",
+                text: "购买第二个画布。",
                 highlightElements: !0
             }, {
                 name: "pic2select",
@@ -2026,7 +2026,7 @@
                 finishFnc: function () {
                     return "Workshop" == t && 1 == b.currentPicture
                 },
-                text: "Click this new canvas to select it for drawing.",
+                text: "单击此新画布以选择它进行绘制。",
                 highlightElements: !0
             }, {
                 name: "helper1descr",
@@ -2039,7 +2039,7 @@
                 finishFnc: function () {
                     return b.workerParams[0].active
                 },
-                text: "This is your first helper - a student painter. Now he is inactive. Click the corresponding \"Active\" button or drag'n'drop him to another place to activate him. This helper can draw a part of the picture around his starting point, when he finishes it he stops. To continue drawing activate him at another point. Later you can hire a helper who can draw the whole picture starting at any point. Also you can upgrade this helper to make him draw bigger parts. Now activate this helper.",
+                text: "这是你的第一个助手 - 学生画家。 现在他不活跃了。 单击相应的“活动”按钮或将其拖放到另一个位置以激活他。 这个帮助者可以在他的起点周围绘制一部分图片，当他完成它时他会停下来。 继续绘画在另一点激活他。 之后你可以雇佣一名助手，他可以从任何一点开始绘制全貌。 你也可以升级这个助手，让他画更大的部分。 现在激活这个助手。",
                 highlightElements: !0
             }, {
                 name: "tutorialEnd",
@@ -2052,13 +2052,13 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "Congratulations! You have finished the tutorial!<br/>Don't forget to check the amount of paint, if you can't draw or paint it may be because you don't have enough paint; wait a bit until the paint is replenished.<br/>Keep in mind how much paint your brushes and helpers use, switch or deactivate them when necessary.<br/>Hire managers if you have enough money, they can sell copies of your pictures even offline.<br/>You can now play on your own. Good luck and have fun!",
+                text: "恭喜！ 你已经完成了教程！<br/>不要忘记检查油漆量，如果你不能画或油漆它可能是因为你没有足够的油漆; 等待油漆补充。<br/>请记住你的刷子和帮手使用多少油漆，必要时切换或停用它们。<br/>如果你有足够的钱，他们可以出售你的副本 图片甚至离线。<br/>您现在可以自己玩了。 祝你好运，玩得开心点！",
                 highlightElements: !0
             }],
         Xb = aa.length,
         f = [{
             name: "Student painter",
-            descr: 'He can draw a small square part of the picture using a small amount of paint. <i>He gets an <b>additional skill</b> at level <span class="num">51</span> of the <b>area size</b></i>.',
+            descr: '他可以使用少量油漆绘制图片的小方块部分。<i>他得到了一个 <b>额外技能</b> 在<b>面积大小</b>达到 <span class="num">51</span>级时。 </i>.',
             price: 100,
             icon: "painter1.png",
             startPosX: 250,
@@ -2090,7 +2090,7 @@
             }
         }, {
             name: "Painter's apprentice",
-            descr: "He can draw a whole picture, but uses a big amount of paint.",
+            descr: "他可以画出整个画面，但是使用了大量的油漆。",
             price: 2E4,
             icon: "painter2.png",
             startPosX: 40,
@@ -2202,3 +2202,18 @@
         a.put("uibm/template/progressbar/progressbar.html", '<div class="progress"><div class="progress-bar" ng-class="type && \'progress-bar-\' + type" role="progressbar" aria-valuenow="{{value}}" aria-valuemin="0" aria-valuemax="{{max}}" ng-style="{width: (percent < 100 ? percent : 100) + \'%\'}" aria-valuetext="{{percent | number:0}}%" aria-labelledby="{{::title}}"></div><div class="progress-text" ng-transclude></div></div>\n')
     }])
 })();
+//汉化xx
+function cnText(text){
+    var cntext="";
+    var temp=text;
+    if(temp=="Workshop"){
+        cntext="工作台"
+    }else if(temp==""){
+        cntext=""
+    }else{
+console.log("需汉化的英文："+text);
+        return text;
+    }
+    return cntext;
+}
+                                    

@@ -29,7 +29,7 @@
 
     </script>
     <div id=gamearea>
-        <div class=container ng-if=!init id=initializing>Initializing...</div>
+        <div class=container ng-if=!init id=initializing>初始化...</div>
         <script>
             setTimeout(function() {
                 var e = document.getElementById('initializing');
@@ -40,31 +40,31 @@
         <div class="container-fluid ng-hide" ng-show=init ng-cloak>
             <div class="navbar navbar-default">
                 <div class=container-fluid>
-                    <div class=navbar-brand>Idle Painters <small>v. {{gameVer}}</small></div>
+                    <div class=navbar-brand>画家放置 <small>v. {{gameVer}}</small></div>
                     <div class="pull-right text-right"><span class=animate-fade ng-show=isSaveTextVisible ng-bind=saveText></span> <span class="glyphicon text-primary" ng-class=saveIconState() ng-click=saveGameParams() role=button></span>
                         <div></div>
-                        <p class="animate-fade save-timer small text-info" ng-show=isSaveDone()>{{timeFromLastSave()}}s since the last save</div>
+                        <p class="animate-fade save-timer small text-info" ng-show=isSaveDone()>上一次保存是在 {{timeFromLastSave()}}秒前</div>
                 </div>
             </div>
             <div class=clearfix></div>
             <div class="panel panel-success animate-slide tutorial-highlight" ng-show=isTutorialAnyStepActive()>
                 <div class=panel-heading>
-                    <h3 class=panel-title>Tutorial</h3></div>
+                    <h3 class=panel-title>教程</h3></div>
                 <div class=panel-body>
                     <p ng-bind-html=tutorialGetActiveStepText()>
                         <div class=row>
                             <div class=col-sm-4></div>
                             <div class=col-sm-4>
-                                <div class="btn-group btn-group-justified" role=group aria-label="Justified button group" ng-if=tutorialShowContinueButton()><a href="index.html#" m-prevent-default ng-click=tutorialOnClickContinue() class="btn btn-success center-block" type=button>Continue</a></div>
+                                <div class="btn-group btn-group-justified" role=group aria-label="Justified button group" ng-if=tutorialShowContinueButton()><a href="index.html#" m-prevent-default ng-click=tutorialOnClickContinue() class="btn btn-success center-block" type=button>继续</a></div>
                             </div>
-                            <div class=col-sm-4><a href="index.html#" m-prevent-default ng-click=tutorialFinish() class="btn btn-default pull-right" type=button>Skip tutorial</a></div>
+                            <div class=col-sm-4><a href="index.html#" m-prevent-default ng-click=tutorialFinish() class="btn btn-default pull-right" type=button>跳过教程</a></div>
                         </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class=panel-body>
                     <div class=row>
-                        <div class=col-sm-3><b>Money</b>: ${{money() | bignum:2:3}}<span class=animate-fade ng-show="isAdsAvailable() && boostList.money.available()"> <button class="btn btn-info btn-xs" ng-click="showBoostDialog('money')" type=button><span class="glyphicon glyphicon-plus"></span></button>
+                        <div class=col-sm-3><b>金钱</b>: ${{money() | bignum:2:3}}<span class=animate-fade ng-show="isAdsAvailable() && boostList.money.available()"> <button class="btn btn-info btn-xs" ng-click="showBoostDialog('money')" type=button><span class="glyphicon glyphicon-plus"></span></button>
                             </span>
                         </div>
                         <div class=col-sm-9 ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('paintBucket')}"><span class=pull-left><b>Paint</b>: </span><span class=pull-right style=width:30px;min-height:1px;display:block><span class=animate-fade ng-show="isAdsAvailable() && boostList.paint.available()"><button class="btn btn-info btn-xs" ng-click="showBoostDialog('paint')" type=button><span class="glyphicon glyphicon-plus"></span></button>
@@ -77,13 +77,13 @@
             </div>
             <section ng-controller="TabsController as tab">
                 <ul class="nav nav-tabs">
-                    <li ng-class="{active:tab.isSelected(0), 'tutorial-highlight':isTutorialStepNameHighlight('layer1') || isTutorialStepNameHighlight('layer1AfterAch') || isTutorialStepNameHighlight('layer1progress') || isTutorialStepNameHighlight('pic1lvl2') || isTutorialStepNameHighlight('pic1lvl2up') || isTutorialStepNameHighlight('magicBrushBought') || isTutorialStepNameHighlight('paintBucket') || isTutorialStepNameHighlight('selectMagicBrush') || isTutorialStepNameHighlight('helper1descr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(0)>Workshop</a>
-                        <li ng-class="{active:tab.isSelected(1), 'tutorial-highlight':isTutorialStepNameHighlight('start') || isTutorialStepNameHighlight('pictureFinish') || isTutorialStepNameHighlight('sell1') || isTutorialStepNameHighlight('pic2buy') || isTutorialStepNameHighlight('pic2buy2') || isTutorialStepNameHighlight('pic2select')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(1)>Shop</a>
-                            <li ng-class="{active:tab.isSelected(2), 'tutorial-highlight':isTutorialStepNameHighlight('upgrade') || isTutorialStepNameHighlight('magicBrush') || isTutorialStepNameHighlight('pic1lvl3finish') || isTutorialStepNameHighlight('helper1')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(2)>Upgrades</a>
-                                <li ng-class="{active:tab.isSelected(3), 'tutorial-highlight':isTutorialStepNameHighlight('1stAch') || isTutorialStepNameHighlight('achSuperClicker') || isTutorialStepNameHighlight('achOther') || isTutorialStepNameHighlight('achQualImpr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(3)>Achievements <span class="glyphicon glyphicon-info-sign" ng-show=isNewAchievementAvailable()></span></a>
-                                    <li ng-class={active:tab.isSelected(4)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(4)>Statistics</a>
-                                        <li ng-class={active:tab.isSelected(5)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(5)>Boosts</a>
-                                            <li ng-class={active:tab.isSelected(6)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(6)>Settings</a></ul>
+                    <li ng-class="{active:tab.isSelected(0), 'tutorial-highlight':isTutorialStepNameHighlight('layer1') || isTutorialStepNameHighlight('layer1AfterAch') || isTutorialStepNameHighlight('layer1progress') || isTutorialStepNameHighlight('pic1lvl2') || isTutorialStepNameHighlight('pic1lvl2up') || isTutorialStepNameHighlight('magicBrushBought') || isTutorialStepNameHighlight('paintBucket') || isTutorialStepNameHighlight('selectMagicBrush') || isTutorialStepNameHighlight('helper1descr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(0)>工作台</a>
+                        <li ng-class="{active:tab.isSelected(1), 'tutorial-highlight':isTutorialStepNameHighlight('start') || isTutorialStepNameHighlight('pictureFinish') || isTutorialStepNameHighlight('sell1') || isTutorialStepNameHighlight('pic2buy') || isTutorialStepNameHighlight('pic2buy2') || isTutorialStepNameHighlight('pic2select')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(1)>商店</a>
+                            <li ng-class="{active:tab.isSelected(2), 'tutorial-highlight':isTutorialStepNameHighlight('upgrade') || isTutorialStepNameHighlight('magicBrush') || isTutorialStepNameHighlight('pic1lvl3finish') || isTutorialStepNameHighlight('helper1')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(2)>升级</a>
+                                <li ng-class="{active:tab.isSelected(3), 'tutorial-highlight':isTutorialStepNameHighlight('1stAch') || isTutorialStepNameHighlight('achSuperClicker') || isTutorialStepNameHighlight('achOther') || isTutorialStepNameHighlight('achQualImpr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(3)>成就 <span class="glyphicon glyphicon-info-sign" ng-show=isNewAchievementAvailable()></span></a>
+                                    <li ng-class={active:tab.isSelected(4)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(4)>统计</a>
+                                        <li ng-class={active:tab.isSelected(5)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(5)>提升</a>
+                                            <li ng-class={active:tab.isSelected(6)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(6)>设置</a></ul>
                 <div class=tab-content ng-show=tab.isSelected(0)>
                     <div class="panel panel-default" ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('pic1lvl2up') || isTutorialStepNameHighlight('magicBrushBought') || isTutorialStepNameHighlight('paintBucket')}">
                         <div class=panel-body>
@@ -398,13 +398,13 @@
                 <div class=modal-dialog>
                     <div class=modal-content>
                         <div class=modal-header>
-                            <h4 class=modal-title>Welcome back<span ng-if=!kongregateInfo().isGuest>, {{kongregateInfo().userName}}</span>!</h4></div>
+                            <h4 class=modal-title>欢迎回来<span ng-if=!kongregateInfo().isGuest>, {{kongregateInfo().userName}}</span>!</h4></div>
                         <div class=modal-body>
-                            <p>You were offline for {{offlineTime()}}.
-                                <p>You earned <span class=num>${{offlineMoneyEarned() | bignum:2:3}}</span></div>
+                            <p>你离开了 {{offlineTime()}}.
+                                <p>你得到了 <span class=num>${{offlineMoneyEarned() | bignum:2:3}}</span></div>
                         <div class=modal-footer>
                             <div class=text-center>
-                                <button class="btn btn-primary" ng-click=hideOfflineStats() type=button>OK</button>
+                                <button class="btn btn-primary" ng-click=hideOfflineStats() type=button>好的</button>
                             </div>
                         </div>
                     </div>
