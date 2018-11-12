@@ -10,7 +10,7 @@
 <script src="js/lz-string.min.js"></script>
 <script src="js/game.min-v=a.js"></script>
 <meta content="Idle Painters" name=application-name>
-
+<title>放置画家 - Idle Painters</title>
 <body ng-controller=GameController ng-mousedown=gameMouseDown($event) ng-mousemove=onWorkerMove($event) ng-mouseup=stopWorkerMove($event)>
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -90,7 +90,7 @@
                             <div ng-hide=isCurrentPictureFinished()>
                                 <div class=row ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('layer1progress')}">
                                     <div class=col-sm-3><b>画作质量</b>: {{getPictureLevel(getCurrentPictureId())}}</div>
-                                    <div class=col-sm-9><span class=pull-left><b>Layer progress</b>:</span>
+                                    <div class=col-sm-9><span class=pull-left><b>图层进度</b>:</span>
                                         <uibm-progressbar max=getFillMax() value=getFillCnt()>{{getFillCnt() | bignum:0:3}} / {{getFillMax() | bignum:0:3}} ({{getFillCnt() * 100 / getFillMax() | number:2}}%)</uibm-progressbar>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                             <div class="text-center col-sm-4" ng-repeat="item in workerList"><b>{{item.name}}</b>
                                                 <br>
                                                 <div class=btn-group role=group ng-class="{'tutorial-highlight':$index == 0 && isTutorialStepNameHighlight('helper1descr')}">
-                                                    <button class="btn btn-default" ng-click=switchWorkerActivity($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerParams()[$index].active}>Active</button>
+                                                    <button class="btn btn-default" ng-click=switchWorkerActivity($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerParams()[$index].active}>激活</button>
                                                     <button class="btn btn-default" ng-click=startCancelChangingWorkerPos($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerSettingNewPos()[$index]}>设定位置</button>
                                                 </div>
                                                 <br><span ng-if=isWorkerBought($index)>{{getWorkerStrength($index) / getWorkerDrawInterval($index) | bignum:0:3}} 像素/秒<br>{{getWorkerConsumptionPerSec($index) | bignum:3:3}} 颜料/秒</span></div>
@@ -117,10 +117,10 @@
                             <div ng-show=isCurrentPictureFinished()>
                                 <div class=row>
                                     <div class="text-center col-sm-6 col-sm-offset-3">
-                                        <button class="btn btn-success improve-button" ng-click=doNextPictureLevel() type=button>Improve the picture quality to {{getPictureLevel(getCurrentPictureId()) + 1}}</button>
+                                        <button class="btn btn-success improve-button" ng-click=doNextPictureLevel() type=button>提高图像质量到 {{getPictureLevel(getCurrentPictureId()) + 1}}</button>
                                     </div>
                                     <div class="col-sm-3 text-right" ng-if=isPictureQualityImproverActive()>
-                                        <button class="btn btn-info btn-sm improve-button" ng-click=pictureAutoImproveSwitchState() type=button ng-class="{'active':isPictureAutoImproveActive()}">Auto-improve <span ng-if=isPictureAutoImproveActive()>in {{pictureAutoImproveTimeRemain()}}s</span><span ng-if=!isPictureAutoImproveActive()>OFF</span></button>
+                                        <button class="btn btn-info btn-sm improve-button" ng-click=pictureAutoImproveSwitchState() type=button ng-class="{'active':isPictureAutoImproveActive()}">自动提高 <span ng-if=isPictureAutoImproveActive()>in {{pictureAutoImproveTimeRemain()}}s</span><span ng-if=!isPictureAutoImproveActive()>关闭</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -144,9 +144,9 @@
                                         <div class=text-center ng-repeat="item in workerList" ng-hide=isCurrentPictureFinished()><b>{{item.name}}</b>
                                             <br>
                                             <div ng-class="{'tutorial-highlight':$index == 0 && isTutorialStepNameHighlight('helper1descr')}">
-                                                <button class="btn btn-default" ng-click=switchWorkerActivity($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerParams()[$index].active}>Active</button>
+                                                <button class="btn btn-default" ng-click=switchWorkerActivity($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerParams()[$index].active}>激活</button>
                                                 <br>
-                                                <button class="btn btn-default" ng-click=startCancelChangingWorkerPos($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerSettingNewPos()[$index]}>Set position</button>
+                                                <button class="btn btn-default" ng-click=startCancelChangingWorkerPos($index) type=button ng-disabled=!isWorkerBought($index) ng-class={active:workerSettingNewPos()[$index]}>设置位置</button>
                                             </div><span ng-if=isWorkerBought($index)>{{getWorkerStrength($index) / getWorkerDrawInterval($index) | bignum:0:3}} pixels/sec<br>{{getWorkerConsumptionPerSec($index) | bignum:3:3}} 颜料/秒</span>
                                             <br>
                                             <br>
@@ -168,42 +168,42 @@
                                 <button class="btn btn-default thumb-button" ng-click=shopCtr.selectPicture($index) ng-disabled="getPictureLevel($index) < 0" ng-class="{'tutorial-highlight': ($index == 0 && isTutorialStepNameHighlight('start')) || ($index == 1 && isTutorialStepNameHighlight('pic2select'))}"><img class=img-thumb ng-src="{{shopCtr.isOpened($index) ? shopCtr.getPictureUrl($index) : shopCtr.isBought($index) ? shopCtr.getCanvasImgUrl($index) : shopCtr.getLockImgUrl($index)}}"></button>
                                 <uibm-progressbar max="shopCtr.getPictureSpeedUpNextLevel($index) - shopCtr.getPictureSpeedUpPrevLevel($index)" value="getPictureLevel($index) - shopCtr.getPictureSpeedUpPrevLevel($index)" class=animate-fade ng-show=shopCtr.isBought($index) type=success>{{getPictureLevel($index)}}</uibm-progressbar>
                                 <td ng-class="{'tutorial-highlight': $index == 1 && isTutorialStepNameHighlight('pic2buy2')}">
-                                    <button class="btn btn-default" ng-click=shopCtr.doBuy($index) type=button ng-disabled=!shopCtr.canBuy($index) ng-if="!shopCtr.isBought($index) && $index > 0 && getPictureLevel($index - 1) > 0">Buy for ${{shopCtr.pictureList[$index].buyPrice | bignum:2}}</button> <span class=animate-fade ng-show=shopCtr.isBought($index)>画作质量 {{getPictureLevel($index)}}<span ng-if="getCurrentPictureId() == $index"> (完成度达到{{shopCtr.paintedPercentRemain()}}%以增加画作质量)</span> <span ng-if="getPictureLevel($index) > 0"><br>价格 ${{shopCtr.getPictureSellPrice($index) | bignum:2}}<br></span>
-                                    <button class="btn btn-default btn-xs" ng-click=shopCtr.startSellingPicture($index) type=button ng-class="{'tutorial-highlight': $index == 0 && isTutorialStepNameHighlight('sell1')}" ng-if=shopCtr.showSellButton($index)>Sell</button>
-                                    <div ng-if="!isSmallCanvas && shopCtr.showSellProgress($index)"><span class=pull-left>Selling:</span>
+                                    <button class="btn btn-default" ng-click=shopCtr.doBuy($index) type=button ng-disabled=!shopCtr.canBuy($index) ng-if="!shopCtr.isBought($index) && $index > 0 && getPictureLevel($index - 1) > 0">购买消耗 ${{shopCtr.pictureList[$index].buyPrice | bignum:2}}</button> <span class=animate-fade ng-show=shopCtr.isBought($index)>画作质量 {{getPictureLevel($index)}}<span ng-if="getCurrentPictureId() == $index"> (完成度达到{{shopCtr.paintedPercentRemain()}}%以增加画作质量)</span> <span ng-if="getPictureLevel($index) > 0"><br>价格 ${{shopCtr.getPictureSellPrice($index) | bignum:2}}<br></span>
+                                    <button class="btn btn-default btn-xs" ng-click=shopCtr.startSellingPicture($index) type=button ng-class="{'tutorial-highlight': $index == 0 && isTutorialStepNameHighlight('sell1')}" ng-if=shopCtr.showSellButton($index)>出售</button>
+                                    <div ng-if="!isSmallCanvas && shopCtr.showSellProgress($index)"><span class=pull-left>出售进度:</span>
                                         <uibm-progressbar max=shopCtr.getSellTimeTotal($index) value=shopCtr.getSellTimeFromStart($index)>{{shopCtr.getSellTimeFromStartFormatted($index)}} / {{shopCtr.getSellTimeTotalFormatted($index)}}</uibm-progressbar>
                                     </div>
                                     </span>
                                     <td width=140>
-                                        <button class="btn btn-default" ng-click=shopCtr.doHire($index) type=button ng-disabled=!shopCtr.canHire($index) ng-if="shopCtr.isBought($index) && !shopCtr.isManaged($index) && getPictureLevel($index) > 0">Hire manager
-                                            <br>for ${{shopCtr.pictureList[$index].managerPrice | bignum:0:3}}</button> <span ng-if=shopCtr.isManaged($index)>The manager is hired and sells this picture 24h/day.</span>
+                                        <button class="btn btn-default" ng-click=shopCtr.doHire($index) type=button ng-disabled=!shopCtr.canHire($index) ng-if="shopCtr.isBought($index) && !shopCtr.isManaged($index) && getPictureLevel($index) > 0">聘请经理
+                                            <br>消耗 ${{shopCtr.pictureList[$index].managerPrice | bignum:0:3}}</button> <span ng-if=shopCtr.isManaged($index)>经理被雇用并每天24小时出售这张照片。</span>
                                         <tr ng-if="isSmallCanvas && shopCtr.showSellProgress($index)" ng-class="{info:getCurrentPictureId() == $index}" ng-repeat-end>
                                             <td colspan=3>
-                                                <div><span class=pull-left>Selling:</span>
+                                                <div><span class=pull-left>出售进度:</span>
                                                     <uibm-progressbar max=shopCtr.getSellTimeTotal($index) value=shopCtr.getSellTimeFromStart($index)>{{shopCtr.getSellTimeFromStartFormatted($index)}} / {{shopCtr.getSellTimeTotalFormatted($index)}}</uibm-progressbar>
                                                 </div>
                     </table>
                 </div>
                 <div class=tab-content ng-if=tab.isSelected(2) ng-controller="UpgradeController as upgCtr">
                     <div class="panel panel-primary">
-                        <div class=panel-heading>Paint bucket</div>
+                        <div class=panel-heading>颜料桶</div>
                         <div class=panel-body>
-                            <p>The paint bucket contains magic paint that you can use to create your pictures.
+                            <p>颜料桶包含可用于创建图片的魔术涂料。
                                 <table class="shop table table-bordered">
                                     <tr>
-                                        <td><b>Capacity {{paintMax() | bignum}}</b>
-                                            <br><i>After upgrade: {{upgCtr.getPaintBucketNextRealSize() | bignum}}</i>
+                                        <td><b>容量 {{paintMax() | bignum}}</b>
+                                            <br><i>升级后: {{upgCtr.getPaintBucketNextRealSize() | bignum}}</i>
                                             <br>
                                             <div class="btn-group btn-group-sm" role=group>
-                                                <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSize() type=button ng-disabled=!upgCtr.isPaintBucketSizeUpgradeable()>Upgrade for ${{upgCtr.getPaintBucketSizeUpgradePrice() | bignum:2}}</button>
+                                                <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSize() type=button ng-disabled=!upgCtr.isPaintBucketSizeUpgradeable()>升级消耗 ${{upgCtr.getPaintBucketSizeUpgradePrice() | bignum:2}}</button>
                                                 <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSize(10) type=button ng-disabled=!upgCtr.isPaintBucketSizeUpgradeable()>+10</button>
                                                 <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSize(100) type=button ng-disabled=!upgCtr.isPaintBucketSizeUpgradeable()>+100</button>
                                             </div>
-                                            <td><b>Speed of replenishment +{{paintSpeed() | bignum:0:3}} paints/sec</b>
-                                                <br><i>After upgrade: +{{upgCtr.getPaintBucketNextRealSpeed() | bignum:0:3}} paints/sec</i>
+                                            <td><b>重装速度 +{{paintSpeed() | bignum:0:3}} 颜料/秒</b>
+                                                <br><i>升级后: +{{upgCtr.getPaintBucketNextRealSpeed() | bignum:0:3}} 颜料/秒</i>
                                                 <br>
                                                 <div class="btn-group btn-group-sm" role=group>
-                                                    <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSpeed() type=button ng-disabled=!upgCtr.isPaintBucketSpeedUpgradeable($index)>Upgrade for ${{upgCtr.getPaintBucketSpeedUpgradePrice() | bignum:2}}</button>
+                                                    <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSpeed() type=button ng-disabled=!upgCtr.isPaintBucketSpeedUpgradeable($index)>升级消耗 ${{upgCtr.getPaintBucketSpeedUpgradePrice() | bignum:2}}</button>
                                                     <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSpeed(10) type=button ng-disabled=!upgCtr.isPaintBucketSpeedUpgradeable($index)>+10</button>
                                                     <button class="btn btn-default" ng-click=upgCtr.upgradePaintBucketSpeed(100) type=button ng-disabled=!upgCtr.isPaintBucketSpeedUpgradeable($index)>+100</button>
                                                 </div>
@@ -215,26 +215,26 @@
                         <div class=panel-body>
                             <p>{{item.descr}}
                                 <div class=text-center ng-if=!isBrushBought($index)>
-                                    <button class="btn btn-default" ng-click=upgCtr.buyBrush($index) type=button ng-disabled=!upgCtr.canBuyBrush($index)>Buy brush for ${{item.price | bignum:2}}</button>
+                                    <button class="btn btn-default" ng-click=upgCtr.buyBrush($index) type=button ng-disabled=!upgCtr.canBuyBrush($index)>购买刷子消耗 ${{item.price | bignum:2}}</button>
                                 </div>
                                 <div class=animate-slide ng-show=isBrushBought($index)>
                                     <table class="shop table table-bordered">
                                         <tr>
-                                            <td><b>Strength level {{brushProps($index).strengthLevel}}</b>
-                                                <br>Creates {{upgCtr.getBrushStrength($index) | bignum:0:3}} pixels/click
-                                                <br><i>After upgrade: {{upgCtr.getBrushNextStrength($index) | bignum:0:3}} pixels/click</i>
+                                            <td><b>强度等级 {{brushProps($index).strengthLevel}}</b>
+                                                <br>创建 {{upgCtr.getBrushStrength($index) | bignum:0:3}} 像素/每次点击
+                                                <br><i>升级后: {{upgCtr.getBrushNextStrength($index) | bignum:0:3}} 像素/每次点击</i>
                                                 <br>
                                                 <div class="btn-group btn-group-sm" role=group>
-                                                    <button class="btn btn-default" ng-click=upgCtr.brushUpgradeStrength($index) type=button ng-disabled=!upgCtr.isBrushStrengthUpgradeable($index)>Upgrade for ${{upgCtr.getBrushUpgradeStrengthPrice($index) | bignum:2}}</button>
+                                                    <button class="btn btn-default" ng-click=upgCtr.brushUpgradeStrength($index) type=button ng-disabled=!upgCtr.isBrushStrengthUpgradeable($index)>升级消耗 ${{upgCtr.getBrushUpgradeStrengthPrice($index) | bignum:2}}</button>
                                                     <button class="btn btn-default" ng-click="upgCtr.brushUpgradeStrength($index, 10)" type=button ng-disabled=!upgCtr.isBrushStrengthUpgradeable($index)>+10</button>
                                                     <button class="btn btn-default" ng-click="upgCtr.brushUpgradeStrength($index, 100)" type=button ng-disabled=!upgCtr.isBrushStrengthUpgradeable($index)>+100</button>
                                                 </div>
-                                                <td><b>Efficiency level {{brushProps($index).efficiencyLevel}}</b>
-                                                    <br>Uses {{upgCtr.getBrushConsumption($index) | number:3}} paints/click
-                                                    <br><i>After upgrade: {{upgCtr.getBrushNextConsumption($index) | number:3}} paints/click</i>
+                                                <td><b>效率等级 {{brushProps($index).efficiencyLevel}}</b>
+                                                    <br>使用 {{upgCtr.getBrushConsumption($index) | number:3}} 颜料/每次点击
+                                                    <br><i>升级后: {{upgCtr.getBrushNextConsumption($index) | number:3}} 颜料/每次点击</i>
                                                     <br>
                                                     <div class="btn-group btn-group-sm" role=group>
-                                                        <button class="btn btn-default" ng-click=upgCtr.brushUpgradeEfficiency($index) type=button ng-disabled=!upgCtr.isBrushEfficiencyUpgradeable($index)>Upgrade for ${{upgCtr.getBrushUpgradeEfficiencyPrice($index) | bignum:2}}</button>
+                                                        <button class="btn btn-default" ng-click=upgCtr.brushUpgradeEfficiency($index) type=button ng-disabled=!upgCtr.isBrushEfficiencyUpgradeable($index)>升级消耗 ${{upgCtr.getBrushUpgradeEfficiencyPrice($index) | bignum:2}}</button>
                                                         <button class="btn btn-default" ng-click="upgCtr.brushUpgradeEfficiency($index, 10)" type=button ng-disabled=!upgCtr.isBrushEfficiencyUpgradeable($index)>+10</button>
                                                         <button class="btn btn-default" ng-click="upgCtr.brushUpgradeEfficiency($index, 100)" type=button ng-disabled=!upgCtr.isBrushEfficiencyUpgradeable($index)>+100</button>
                                                     </div>
@@ -247,47 +247,47 @@
                         <div class=panel-body>
                             <p ng-bind-html=item.descr>
                                 <div class=text-center ng-if=!isWorkerBought($index)>
-                                    <button class="btn btn-default" ng-click=upgCtr.buyWorker($index) type=button ng-disabled=!upgCtr.canBuyWorker($index)>Buy worker for ${{item.price | bignum:2}}</button>
+                                    <button class="btn btn-default" ng-click=upgCtr.buyWorker($index) type=button ng-disabled=!upgCtr.canBuyWorker($index)>购买工人消耗  ${{item.price | bignum:2}}</button>
                                 </div>
                                 <div class=animate-slide ng-show=isWorkerBought($index)>
                                     <table class="shop table table-bordered">
                                         <tr>
-                                            <td><b>Strength level {{workerParams()[$index].strengthLevel}}</b>
-                                                <br>Creates {{getWorkerStrength($index) | bignum:0:3}} pixels/action
-                                                <br><i>After upgrade: {{upgCtr.getWorkerNextStrength($index) | bignum:0:3}} pixels/action</i>
+                                            <td><b>强度等级 {{workerParams()[$index].strengthLevel}}</b>
+                                                <br>创建 {{getWorkerStrength($index) | bignum:0:3}} 像素/行动
+                                                <br><i>升级后: {{upgCtr.getWorkerNextStrength($index) | bignum:0:3}} 像素/行动</i>
                                                 <br>
                                                 <div class="btn-group btn-group-sm" role=group>
-                                                    <button class="btn btn-default" ng-click=upgCtr.workerUpgradeStrength($index) type=button ng-disabled=!upgCtr.isWorkerStrengthUpgradeable($index)>Upgrade for ${{upgCtr.getWorkerUpgradeStrengthPrice($index) | bignum:2}}</button>
+                                                    <button class="btn btn-default" ng-click=upgCtr.workerUpgradeStrength($index) type=button ng-disabled=!upgCtr.isWorkerStrengthUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeStrengthPrice($index) | bignum:2}}</button>
                                                     <button class="btn btn-default" ng-click="upgCtr.workerUpgradeStrength($index, 10)" type=button ng-disabled=!upgCtr.isWorkerStrengthUpgradeable($index)>+10</button>
                                                     <button class="btn btn-default" ng-click="upgCtr.workerUpgradeStrength($index, 100)" type=button ng-disabled=!upgCtr.isWorkerStrengthUpgradeable($index)>+100</button>
                                                 </div>
-                                                <td><b>Efficiency level {{workerParams()[$index].efficiencyLevel}}</b>
-                                                    <br>Uses {{getWorkerConsumption($index) | bignum:3:3}} paints/action or {{getWorkerConsumptionPerSec($index) | bignum:3:3}} paints/sec
-                                                    <br><i>After upgrade: {{upgCtr.getWorkerNextConsumption($index) | bignum:3:3}} paints/action or {{upgCtr.getWorkerNextConsumption($index) / getWorkerDrawInterval($index) | bignum:3:3}} paints/sec</i>
+                                                <td><b>效率等级 {{workerParams()[$index].efficiencyLevel}}</b>
+                                                    <br>使用 {{getWorkerConsumption($index) | bignum:3:3}} 颜料/行动 or {{getWorkerConsumptionPerSec($index) | bignum:3:3}} 颜料/秒
+                                                    <br><i>升级后: {{upgCtr.getWorkerNextConsumption($index) | bignum:3:3}} 颜料/行动 or {{upgCtr.getWorkerNextConsumption($index) / getWorkerDrawInterval($index) | bignum:3:3}} 颜料/秒</i>
                                                     <br>
                                                     <div class="btn-group btn-group-sm" role=group>
-                                                        <button class="btn btn-default" ng-click=upgCtr.workerUpgradeEfficiency($index) type=button ng-disabled=!upgCtr.isWorkerEfficiencyUpgradeable($index)>Upgrade for ${{upgCtr.getWorkerUpgradeEfficiencyPrice($index) | bignum:2}}</button>
+                                                        <button class="btn btn-default" ng-click=upgCtr.workerUpgradeEfficiency($index) type=button ng-disabled=!upgCtr.isWorkerEfficiencyUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeEfficiencyPrice($index) | bignum:2}}</button>
                                                         <button class="btn btn-default" ng-click="upgCtr.workerUpgradeEfficiency($index, 10)" type=button ng-disabled=!upgCtr.isWorkerEfficiencyUpgradeable($index)>+10</button>
                                                         <button class="btn btn-default" ng-click="upgCtr.workerUpgradeEfficiency($index, 100)" type=button ng-disabled=!upgCtr.isWorkerEfficiencyUpgradeable($index)>+100</button>
                                                     </div>
                                                     <tr>
                                                         <td><b>Drawing speed level {{workerParams()[$index].drawIntervalLevel}}</b>
                                                             <br>Makes {{1 / getWorkerDrawInterval($index) | bignum:3:3}} actions/second
-                                                            <br><i>After upgrade: {{1 / upgCtr.getWorkerDrawNextInterval($index) | bignum:3:3}} actions/second</i>
+                                                            <br><i>升级后: {{1 / upgCtr.getWorkerDrawNextInterval($index) | bignum:3:3}} actions/second</i>
                                                             <br>
                                                             <div class="btn-group btn-group-sm" role=group>
-                                                                <button class="btn btn-default" ng-click=upgCtr.workerUpgradeDrawInterval($index) type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>Upgrade for ${{upgCtr.getWorkerUpgradeDrawIntervalPrice($index) | bignum:2}}</button>
+                                                                <button class="btn btn-default" ng-click=upgCtr.workerUpgradeDrawInterval($index) type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeDrawIntervalPrice($index) | bignum:2}}</button>
                                                                 <button class="btn btn-default" ng-click="upgCtr.workerUpgradeDrawInterval($index, 10)" type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>+10</button>
                                                                 <button class="btn btn-default" ng-click="upgCtr.workerUpgradeDrawInterval($index, 100)" type=button ng-disabled=!upgCtr.isWorkerDrawIntervalUpgradeable($index)>+100</button>
                                                             </div>
-                                                            <td><span ng-if="getWorkerAreaSize($index) == 0"><b>Area size:</b> whole picture</span> <span ng-if="getWorkerAreaSize($index) > 0"><b>Area size level {{workerParams()[$index].areaSizeLevel}}</b><br>Area size {{getWorkerAreaSize($index)}} pixels<br><i>After upgrade: {{upgCtr.getWorkerAreaNextSize($index)}} pixels</i><br><div class="btn-group btn-group-sm" role=group><button class="btn btn-default" ng-click=upgCtr.workerUpgradeAreaSize($index) type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>Upgrade for ${{upgCtr.getWorkerUpgradeAreaSizePrice($index) | bignum:2}}</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 10)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+10</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 100)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+100</button></div></span>
+                                                            <td><span ng-if="getWorkerAreaSize($index) == 0"><b>Area size:</b> whole picture</span> <span ng-if="getWorkerAreaSize($index) > 0"><b>Area size level {{workerParams()[$index].areaSizeLevel}}</b><br>Area size {{getWorkerAreaSize($index)}} pixels<br><i>升级后: {{upgCtr.getWorkerAreaNextSize($index)}} pixels</i><br><div class="btn-group btn-group-sm" role=group><button class="btn btn-default" ng-click=upgCtr.workerUpgradeAreaSize($index) type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeAreaSizePrice($index) | bignum:2}}</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 10)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+10</button> <button class="btn btn-default" ng-click="upgCtr.workerUpgradeAreaSize($index, 100)" type=button ng-disabled=!upgCtr.isWorkerAreaSizeUpgradeable($index)>+100</button></div></span>
                                                                 <tr ng-if=upgCtr.isWorkerExpStrengthActive($index)>
                                                                     <td colspan=2><b>Exponential strength level {{workerParams()[$index].expStrengthLevel}}</b>
                                                                         <br>Increases the strength every action on {{getWorkerExpStrength($index) | bignum:0:3}} pixels
-                                                                        <br><i>After upgrade: {{upgCtr.getWorkerExpStrengthNextSize($index) | bignum:0:3}} pixels</i>
+                                                                        <br><i>升级后: {{upgCtr.getWorkerExpStrengthNextSize($index) | bignum:0:3}} pixels</i>
                                                                         <br>
                                                                         <div class="btn-group btn-group-sm" role=group>
-                                                                            <button class="btn btn-default" ng-click=upgCtr.workerUpgradeExpStrength($index) type=button ng-disabled=!upgCtr.isWorkerExpStrengthUpgradeable($index)>Upgrade for ${{upgCtr.getWorkerUpgradeExpStrengthPrice($index) | bignum:2}}</button>
+                                                                            <button class="btn btn-default" ng-click=upgCtr.workerUpgradeExpStrength($index) type=button ng-disabled=!upgCtr.isWorkerExpStrengthUpgradeable($index)>升级消耗 ${{upgCtr.getWorkerUpgradeExpStrengthPrice($index) | bignum:2}}</button>
                                                                             <button class="btn btn-default" ng-click="upgCtr.workerUpgradeExpStrength($index, 10)" type=button ng-disabled=!upgCtr.isWorkerExpStrengthUpgradeable($index)>+10</button>
                                                                             <button class="btn btn-default" ng-click="upgCtr.workerUpgradeExpStrength($index, 100)" type=button ng-disabled=!upgCtr.isWorkerExpStrengthUpgradeable($index)>+100</button>
                                                                         </div>
@@ -321,7 +321,7 @@
                         <div class=panel-heading ng-bind=getBoostDialogHeader()></div>
                         <div class=panel-body>
                             <div class="animate-slide alert alert-warning" ng-show=!isAdsAvailable()>
-                                <p>You have no available ads.</div>
+                                <p>您当前没有可用的广告。</div>
                             <p class=text-center ng-repeat="(key, item) in boostList">
                                 <button class="btn btn-default btn-lg" ng-click=showBoostDialog(key) ng-disabled="!isAdsAvailable() || !item.available()" ng-bind-html=item.title()></button> <span ng-show=!item.available()><br>{{item.unavailableText}}</span></div>
                     </div>
@@ -421,7 +421,7 @@
                         <div class=modal-footer>
                             <div class=text-center>
                                 <button class="btn btn-primary" ng-click=closeBoostDialog(true) type=button>{{getBoostDialogButtonText()}}</button>
-                                <button class="btn btn-default" ng-click=closeBoostDialog(false) type=button>Cancel</button>
+                                <button class="btn btn-default" ng-click=closeBoostDialog(false) type=button>取消</button>
                             </div>
                         </div>
                     </div>
@@ -431,18 +431,18 @@
                 <div class=modal-dialog>
                     <div class=modal-content>
                         <div class=modal-header>
-                            <h4 class=modal-title>Change Log</h4></div>
-                        <div class=modal-body><b><u>Version 1.2.0</u></b>
+                            <h4 class=modal-title>更新日志</h4></div>
+                        <div class=modal-body><b><u>版本 1.2.0</u></b>
                             <br>
                             <ul>
-                                <li>the magic brush consumption decreased 5 times
-                                    <li>from level 11 the picture's complexity increases exponentially
-                                        <li>the picture price increases linearly
-                                            <li>the rate of sales increases at levels 2, 4, 8, 16 etc.</ul>
+                                <li>魔术刷消耗量减少5倍
+                                    <li>从第11级开始，图片的复杂性呈指数级增长
+                                        <li>图片价格线性上涨
+                                            <li>销售率在2,4,8,16等级增加。</ul>
                         </div>
                         <div class=modal-footer>
                             <div class=text-center>
-                                <button class="btn btn-primary" ng-click=hideChangeLog() type=button>OK</button>
+                                <button class="btn btn-primary" ng-click=hideChangeLog() type=button>确定</button>
                             </div>
                         </div>
                     </div>
@@ -454,5 +454,5 @@
     </div>
     <!--[if lt IE 9]><p class=ontop>You are using an <strong>outdated</strong> browser. Please <a href=http://browsehappy.com/ target=_blank>upgrade your browser</a> to improve your experience.<![endif]-->
     <noscript>
-        <p class=ontop>JavaScript must be enabled to run this game.</p>
+        <p class=ontop>必须启用JavaScript才能运行此游戏。</p>
     </noscript>

@@ -194,31 +194,31 @@
         };
         ta = {
             picturesSold: {
-                name: "Total pictures sold"
+                name: "累计卖出的画"
             },
             money: {
-                name: "Total money earned"
+                name: "累计赚取的金钱"
             },
             paintSpent: {
-                name: "Total paint used"
+                name: "累计使用颜料"
             },
             pixels: {
-                name: "Total pixels drawn"
+                name: "累计画的像素"
             },
             pixelsClick: {
-                name: "Total pixels drawn by user"
+                name: "累计手动画的像素"
             },
             pixelsWorker0: {
-                name: "Total pixels drawn by " + f[0].name
+                name: "累计画的像素通过 " + f[0].name
             },
             pixelsWorker1: {
-                name: "Total pixels drawn by " + f[1].name
+                name: "累计画的像素通过 " + f[1].name
             },
             clicks: {
-                name: "Total clicks"
+                name: "累计点击次数"
             },
             time: {
-                name: "Total active game time"
+                name: "累计游戏时间"
             }
         };
         b.statistics = {};
@@ -1611,8 +1611,8 @@
             }
         },
         B = [{
-            name: "Simple brush",
-            shortName: "Simple",
+            name: "简单的刷子",
+            shortName: "简单",
             descr: "简单的薄刷使用非常少量的油漆。",
             price: 0,
             strength: 1,
@@ -1626,9 +1626,9 @@
                     (a - 1)
             }
         }, {
-            name: "Magic brush",
-            shortName: "Magic",
-            descr: "The cool magic brush uses a big amount of paint, but it can create a lot of pixels at once.",
+            name: "魔术刷子",
+            shortName: "魔术",
+            descr: "酷炫的魔术笔使用了大量的颜料，但它可以同时创建大量的像素。",
             price: 100,
             strength: 5,
             consumption: .2,
@@ -2057,7 +2057,7 @@
             }],
         Xb = aa.length,
         f = [{
-            name: "Student painter",
+            name: "学生画家",
             descr: '他可以使用少量油漆绘制图片的小方块部分。<i>他得到了一个 <b>额外技能</b> 在<b>面积大小</b>达到 <span class="num">51</span>级时。 </i>.',
             price: 100,
             icon: "painter1.png",
@@ -2089,7 +2089,7 @@
                 return 1E5 * (a - 1)
             }
         }, {
-            name: "Painter's apprentice",
+            name: "画家的学徒",
             descr: "他可以画出整个画面，但是使用了大量的油漆。",
             price: 2E4,
             icon: "painter2.png",
