@@ -591,7 +591,7 @@
 
     function ad() {
         var a = ka();
-        return null == a ? "" : Ub() ? "Click on the " + a.activeTabName + " tab." : a.text
+        return null == a ? "" : Ub() ? "点击 " + a.activeTabName + " 页面。" : a.text
     }
 
     function bd() {
@@ -1660,7 +1660,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: "At first you have an empty canvas, a simple brush and a small bucket of paint. Click the 1st canvas to start painting your first picture.",
+                text: "最开始的时候你有一个空画布，一个简易画笔以及一小桶颜料。点击第一个画布，开始绘制你的第一个作品。",
                 highlightElements: !0
             }, {
                 name: "layer1",
@@ -1673,7 +1673,7 @@
                 finishFnc: function () {
                     return 0 < b.achievementsLevel[C.achClicker]
                 },
-                text: "Click the canvas to draw a sketch of your first picture.",
+                text: "点击画布，来绘制你第一幅画的素描。",
                 highlightElements: !0
             }, {
                 name: "1stAch",
@@ -1686,7 +1686,7 @@
                 finishFnc: function () {
                     return "clickTabAchievements" == b.tutorial.lastClickEvent
                 },
-                text: "Congratulations, you've earned your first achievement! Click the Achievements tab to see your achievements.",
+                text: "恭喜你，你获得了第一个成就！点击成就页面来查看你的成就。",
                 highlightElements: !0
             }, {
                 name: "achSuperClicker",
@@ -1699,7 +1699,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: 'You\'ve earned the "Super Clicker" achievement for <span class="num">10</span> clicks. Your clicks are now 2x times stronger! Click more to increase this further.',
+                text: '你点击了 <span class="num">10</span> 次。所以你获得了“超级点击者”成就。你的点击效果现在变为原来的2倍！继续点击来获得更多成就。',
                 highlightElements: !0
             }, {
                 name: "achOther",
@@ -1712,7 +1712,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "Watch this page for your progression for each achievement. Each achievement gives you valuable boosts.",
+                text: "在这个页面能查看你所有成就的进度。每个成就都会给你一个有用的加成。",
                 highlightElements: !0
             }, {
                 name: "achQualImpr",

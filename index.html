@@ -40,56 +40,56 @@
         <div class="container-fluid ng-hide" ng-show=init ng-cloak>
             <div class="navbar navbar-default">
                 <div class=container-fluid>
-                    <div class=navbar-brand>Idle Painters <small>v. {{gameVer}}</small></div>
+                    <div class=navbar-brand>放置画家 <small>v. {{gameVer}}</small></div>
                     <div class="pull-right text-right"><span class=animate-fade ng-show=isSaveTextVisible ng-bind=saveText></span> <span class="glyphicon text-primary" ng-class=saveIconState() ng-click=saveGameParams() role=button></span>
                         <div></div>
-                        <p class="animate-fade save-timer small text-info" ng-show=isSaveDone()>{{timeFromLastSave()}}s since the last save</div>
+                        <p class="animate-fade save-timer small text-info" ng-show=isSaveDone()>距离上次保存已经过了{{timeFromLastSave()}}秒</div>
                 </div>
             </div>
             <div class=clearfix></div>
             <div class="panel panel-success animate-slide tutorial-highlight" ng-show=isTutorialAnyStepActive()>
                 <div class=panel-heading>
-                    <h3 class=panel-title>Tutorial</h3></div>
+                    <h3 class=panel-title>教程</h3></div>
                 <div class=panel-body>
                     <p ng-bind-html=tutorialGetActiveStepText()>
                         <div class=row>
                             <div class=col-sm-4></div>
                             <div class=col-sm-4>
-                                <div class="btn-group btn-group-justified" role=group aria-label="Justified button group" ng-if=tutorialShowContinueButton()><a href="index.html#" m-prevent-default ng-click=tutorialOnClickContinue() class="btn btn-success center-block" type=button>Continue</a></div>
+                                <div class="btn-group btn-group-justified" role=group aria-label="Justified button group" ng-if=tutorialShowContinueButton()><a href="index.html#" m-prevent-default ng-click=tutorialOnClickContinue() class="btn btn-success center-block" type=button>继续</a></div>
                             </div>
-                            <div class=col-sm-4><a href="index.html#" m-prevent-default ng-click=tutorialFinish() class="btn btn-default pull-right" type=button>Skip tutorial</a></div>
+                            <div class=col-sm-4><a href="index.html#" m-prevent-default ng-click=tutorialFinish() class="btn btn-default pull-right" type=button>跳过教程</a></div>
                         </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class=panel-body>
                     <div class=row>
-                        <div class=col-sm-3><b>Money</b>: ${{money() | bignum:2:3}}<span class=animate-fade ng-show="isAdsAvailable() && boostList.money.available()"> <button class="btn btn-info btn-xs" ng-click="showBoostDialog('money')" type=button><span class="glyphicon glyphicon-plus"></span></button>
+                        <div class=col-sm-3><b>金钱</b>: ${{money() | bignum:2:3}}<span class=animate-fade ng-show="isAdsAvailable() && boostList.money.available()"> <button class="btn btn-info btn-xs" ng-click="showBoostDialog('money')" type=button><span class="glyphicon glyphicon-plus"></span></button>
                             </span>
                         </div>
-                        <div class=col-sm-9 ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('paintBucket')}"><span class=pull-left><b>Paint</b>: </span><span class=pull-right style=width:30px;min-height:1px;display:block><span class=animate-fade ng-show="isAdsAvailable() && boostList.paint.available()"><button class="btn btn-info btn-xs" ng-click="showBoostDialog('paint')" type=button><span class="glyphicon glyphicon-plus"></span></button>
+                        <div class=col-sm-9 ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('paintBucket')}"><span class=pull-left><b>颜料</b>: </span><span class=pull-right style=width:30px;min-height:1px;display:block><span class=animate-fade ng-show="isAdsAvailable() && boostList.paint.available()"><button class="btn btn-info btn-xs" ng-click="showBoostDialog('paint')" type=button><span class="glyphicon glyphicon-plus"></span></button>
                             </span>
                             </span>
-                            <uibm-progressbar max=paintMax() value=paint()>{{paint() | bignum:2}} / {{paintMax() | bignum:0}} ({{paint() * 100 / paintMax() | number:2}}%) +{{paintSpeed() | bignum:2}}/sec</uibm-progressbar>
+                            <uibm-progressbar max=paintMax() value=paint()>{{paint() | bignum:2}} / {{paintMax() | bignum:0}} ({{paint() * 100 / paintMax() | number:2}}%) +{{paintSpeed() | bignum:2}}/秒</uibm-progressbar>
                         </div>
                     </div>
                 </div>
             </div>
             <section ng-controller="TabsController as tab">
                 <ul class="nav nav-tabs">
-                    <li ng-class="{active:tab.isSelected(0), 'tutorial-highlight':isTutorialStepNameHighlight('layer1') || isTutorialStepNameHighlight('layer1AfterAch') || isTutorialStepNameHighlight('layer1progress') || isTutorialStepNameHighlight('pic1lvl2') || isTutorialStepNameHighlight('pic1lvl2up') || isTutorialStepNameHighlight('magicBrushBought') || isTutorialStepNameHighlight('paintBucket') || isTutorialStepNameHighlight('selectMagicBrush') || isTutorialStepNameHighlight('helper1descr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(0)>Workshop</a>
-                        <li ng-class="{active:tab.isSelected(1), 'tutorial-highlight':isTutorialStepNameHighlight('start') || isTutorialStepNameHighlight('pictureFinish') || isTutorialStepNameHighlight('sell1') || isTutorialStepNameHighlight('pic2buy') || isTutorialStepNameHighlight('pic2buy2') || isTutorialStepNameHighlight('pic2select')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(1)>Shop</a>
-                            <li ng-class="{active:tab.isSelected(2), 'tutorial-highlight':isTutorialStepNameHighlight('upgrade') || isTutorialStepNameHighlight('magicBrush') || isTutorialStepNameHighlight('pic1lvl3finish') || isTutorialStepNameHighlight('helper1')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(2)>Upgrades</a>
-                                <li ng-class="{active:tab.isSelected(3), 'tutorial-highlight':isTutorialStepNameHighlight('1stAch') || isTutorialStepNameHighlight('achSuperClicker') || isTutorialStepNameHighlight('achOther') || isTutorialStepNameHighlight('achQualImpr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(3)>Achievements <span class="glyphicon glyphicon-info-sign" ng-show=isNewAchievementAvailable()></span></a>
-                                    <li ng-class={active:tab.isSelected(4)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(4)>Statistics</a>
-                                        <li ng-class={active:tab.isSelected(5)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(5)>Boosts</a>
-                                            <li ng-class={active:tab.isSelected(6)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(6)>Settings</a></ul>
+                    <li ng-class="{active:tab.isSelected(0), 'tutorial-highlight':isTutorialStepNameHighlight('layer1') || isTutorialStepNameHighlight('layer1AfterAch') || isTutorialStepNameHighlight('layer1progress') || isTutorialStepNameHighlight('pic1lvl2') || isTutorialStepNameHighlight('pic1lvl2up') || isTutorialStepNameHighlight('magicBrushBought') || isTutorialStepNameHighlight('paintBucket') || isTutorialStepNameHighlight('selectMagicBrush') || isTutorialStepNameHighlight('helper1descr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(0)>画室</a>
+                        <li ng-class="{active:tab.isSelected(1), 'tutorial-highlight':isTutorialStepNameHighlight('start') || isTutorialStepNameHighlight('pictureFinish') || isTutorialStepNameHighlight('sell1') || isTutorialStepNameHighlight('pic2buy') || isTutorialStepNameHighlight('pic2buy2') || isTutorialStepNameHighlight('pic2select')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(1)>商店</a>
+                            <li ng-class="{active:tab.isSelected(2), 'tutorial-highlight':isTutorialStepNameHighlight('upgrade') || isTutorialStepNameHighlight('magicBrush') || isTutorialStepNameHighlight('pic1lvl3finish') || isTutorialStepNameHighlight('helper1')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(2)>升级</a>
+                                <li ng-class="{active:tab.isSelected(3), 'tutorial-highlight':isTutorialStepNameHighlight('1stAch') || isTutorialStepNameHighlight('achSuperClicker') || isTutorialStepNameHighlight('achOther') || isTutorialStepNameHighlight('achQualImpr')}" role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(3)>成就 <span class="glyphicon glyphicon-info-sign" ng-show=isNewAchievementAvailable()></span></a>
+                                    <li ng-class={active:tab.isSelected(4)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(4)>统计</a>
+                                        <li ng-class={active:tab.isSelected(5)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(5)>加成</a>
+                                            <li ng-class={active:tab.isSelected(6)} role=presentation><a href="index.html#" m-prevent-default ng-click=tab.select(6)>设置</a></ul>
                 <div class=tab-content ng-show=tab.isSelected(0)>
                     <div class="panel panel-default" ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('pic1lvl2up') || isTutorialStepNameHighlight('magicBrushBought') || isTutorialStepNameHighlight('paintBucket')}">
                         <div class=panel-body>
                             <div ng-hide=isCurrentPictureFinished()>
                                 <div class=row ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('layer1progress')}">
-                                    <div class=col-sm-3><b>Picture quality</b>: {{getPictureLevel(getCurrentPictureId())}}</div>
+                                    <div class=col-sm-3><b>画作质量</b>: {{getPictureLevel(getCurrentPictureId())}}</div>
                                     <div class=col-sm-9><span class=pull-left><b>Layer progress</b>:</span>
                                         <uibm-progressbar max=getFillMax() value=getFillCnt()>{{getFillCnt() | bignum:0:3}} / {{getFillMax() | bignum:0:3}} ({{getFillCnt() * 100 / getFillMax() | number:2}}%)</uibm-progressbar>
                                     </div>
@@ -97,7 +97,7 @@
                                 <div class=visible-xs-block>
                                     <p>
                                         <div class=row>
-                                            <div class="text-center col-sm-4" ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('selectMagicBrush')}"><b>Brushes</b>
+                                            <div class="text-center col-sm-4" ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('selectMagicBrush')}"><b>画笔</b>
                                                 <br>
                                                 <div class=btn-group role=group>
                                                     <button class="btn btn-default" ng-click=selectBrush($index) type=button ng-disabled=!isBrushBought($index) ng-class="{active:currentBrushId() == $index}" ng-repeat="item in brushList">{{item.shortName}}</button>
@@ -131,13 +131,13 @@
                             <td width=30% class=hidden-xs>
                                 <div class="panel panel-default">
                                     <div class="text-center panel-body">
-                                        <div ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('selectMagicBrush')}"><b>Brushes</b>
+                                        <div ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('selectMagicBrush')}"><b>画笔</b>
                                             <br>
                                             <div class=btn-group role=group>
                                                 <button class="btn btn-default" ng-click=selectBrush($index) type=button ng-disabled=!isBrushBought($index) ng-class="{active:currentBrushId() == $index}" ng-repeat="item in brushList">{{item.shortName}}</button>
                                             </div>
-                                            <br>{{getBrushStrength(currentBrushId()) | bignum:0:3}} pixels/click
-                                            <br>{{getBrushConsumption(currentBrushId()) | bignum:3:3}} paint/click
+                                            <br>{{getBrushStrength(currentBrushId()) | bignum:0:3}} 像素/点击
+                                            <br>{{getBrushConsumption(currentBrushId()) | bignum:3:3}} 颜料/点击
                                             <br>
                                         </div>
                                         <br>
@@ -168,7 +168,7 @@
                                 <button class="btn btn-default thumb-button" ng-click=shopCtr.selectPicture($index) ng-disabled="getPictureLevel($index) < 0" ng-class="{'tutorial-highlight': ($index == 0 && isTutorialStepNameHighlight('start')) || ($index == 1 && isTutorialStepNameHighlight('pic2select'))}"><img class=img-thumb ng-src="{{shopCtr.isOpened($index) ? shopCtr.getPictureUrl($index) : shopCtr.isBought($index) ? shopCtr.getCanvasImgUrl($index) : shopCtr.getLockImgUrl($index)}}"></button>
                                 <uibm-progressbar max="shopCtr.getPictureSpeedUpNextLevel($index) - shopCtr.getPictureSpeedUpPrevLevel($index)" value="getPictureLevel($index) - shopCtr.getPictureSpeedUpPrevLevel($index)" class=animate-fade ng-show=shopCtr.isBought($index) type=success>{{getPictureLevel($index)}}</uibm-progressbar>
                                 <td ng-class="{'tutorial-highlight': $index == 1 && isTutorialStepNameHighlight('pic2buy2')}">
-                                    <button class="btn btn-default" ng-click=shopCtr.doBuy($index) type=button ng-disabled=!shopCtr.canBuy($index) ng-if="!shopCtr.isBought($index) && $index > 0 && getPictureLevel($index - 1) > 0">Buy for ${{shopCtr.pictureList[$index].buyPrice | bignum:2}}</button> <span class=animate-fade ng-show=shopCtr.isBought($index)>Picture quality {{getPictureLevel($index)}}<span ng-if="getCurrentPictureId() == $index"> ({{shopCtr.paintedPercentRemain()}}% to be painted to reach the next picture quality)</span> <span ng-if="getPictureLevel($index) > 0"><br>Price ${{shopCtr.getPictureSellPrice($index) | bignum:2}}<br></span>
+                                    <button class="btn btn-default" ng-click=shopCtr.doBuy($index) type=button ng-disabled=!shopCtr.canBuy($index) ng-if="!shopCtr.isBought($index) && $index > 0 && getPictureLevel($index - 1) > 0">Buy for ${{shopCtr.pictureList[$index].buyPrice | bignum:2}}</button> <span class=animate-fade ng-show=shopCtr.isBought($index)>画作质量 {{getPictureLevel($index)}}<span ng-if="getCurrentPictureId() == $index"> (完成度达到{{shopCtr.paintedPercentRemain()}}%以增加画作质量)</span> <span ng-if="getPictureLevel($index) > 0"><br>价格 ${{shopCtr.getPictureSellPrice($index) | bignum:2}}<br></span>
                                     <button class="btn btn-default btn-xs" ng-click=shopCtr.startSellingPicture($index) type=button ng-class="{'tutorial-highlight': $index == 0 && isTutorialStepNameHighlight('sell1')}" ng-if=shopCtr.showSellButton($index)>Sell</button>
                                     <div ng-if="!isSmallCanvas && shopCtr.showSellProgress($index)"><span class=pull-left>Selling:</span>
                                         <uibm-progressbar max=shopCtr.getSellTimeTotal($index) value=shopCtr.getSellTimeFromStart($index)>{{shopCtr.getSellTimeFromStartFormatted($index)}} / {{shopCtr.getSellTimeTotalFormatted($index)}}</uibm-progressbar>
@@ -398,10 +398,10 @@
                 <div class=modal-dialog>
                     <div class=modal-content>
                         <div class=modal-header>
-                            <h4 class=modal-title>Welcome back<span ng-if=!kongregateInfo().isGuest>, {{kongregateInfo().userName}}</span>!</h4></div>
+                            <h4 class=modal-title>欢迎回来<span ng-if=!kongregateInfo().isGuest>, {{kongregateInfo().userName}}</span>!</h4></div>
                         <div class=modal-body>
-                            <p>You were offline for {{offlineTime()}}.
-                                <p>You earned <span class=num>${{offlineMoneyEarned() | bignum:2:3}}</span></div>
+                            <p>你的离线时长为 {{offlineTime()}}.
+                                <p>你获得了 <span class=num>${{offlineMoneyEarned() | bignum:2:3}}</span></div>
                         <div class=modal-footer>
                             <div class=text-center>
                                 <button class="btn btn-primary" ng-click=hideOfflineStats() type=button>OK</button>
