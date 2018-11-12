@@ -114,10 +114,10 @@
                                         </div>
                                 </div>
                             </div>
-                            <div ng-show=isCurrentPictureFinished()>
+                            <div ng-show=isCurrentPictureFinished() class="parents">
                                 <div class=row>
                                     <div class="text-center col-sm-6 col-sm-offset-3">
-                                        <button class="btn btn-success improve-button doUpgrade" ng-click=doNextPictureLevel() type=button>提高图像质量到 {{getPictureLevel(getCurrentPictureId()) + 1}}</button>
+                                        <button class="btn btn-success improve-button" id="doUpgrade" ng-click=doNextPictureLevel() type=button>提高图像质量到 {{getPictureLevel(getCurrentPictureId()) + 1}}</button>
                                     </div>
                                     <div class="col-sm-3 text-right" ng-if=isPictureQualityImproverActive()>
                                         <button class="btn btn-info btn-sm improve-button" ng-click=pictureAutoImproveSwitchState() type=button ng-class="{'active':isPictureAutoImproveActive()}">自动提高 <span ng-if=isPictureAutoImproveActive()>in {{pictureAutoImproveTimeRemain()}}s</span><span ng-if=!isPictureAutoImproveActive()>关闭</span></button>
