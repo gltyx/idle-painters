@@ -42,16 +42,16 @@
     }
 
     function xc() {
-        return S() ? "Watch ads to get valuable boosts" : "Visit a website and click any game to get the reward"
+        return S() ? "观看广告以获得宝贵的提升" : "访问网站并点击任何游戏即可获得奖励"
     }
 
     function yc() {
         return u ?
-            (S() ? "Watch an ad and " : "Visit a website and click any game to ") + La[u].dlgText() : ""
+            (S() ? "观看一个广告和 " : "访问一个网站 以及 点击任意游戏去 ") + La[u].dlgText() : ""
     }
 
     function zc() {
-        return S() ? "Watch an ad" : "Visit a website"
+        return S() ? "观看一个广告" : "访问一个网站"
     }
 
     function Ac(a) {
@@ -1566,10 +1566,10 @@
         La = {
             money: {
                 title: function () {
-                    return 'Get <span class="num">$' + Ga(Ia()) + "</span> money"
+                    return '得到 <span class="num">$' + Ga(Ia()) + "</span> 金钱"
                 },
                 dlgText: function () {
-                    return 'get <span class="num">$' + Ga(Ia()) + "</span> money"
+                    return '得到 <span class="num">$' + Ga(Ia()) + "</span> 金钱"
                 },
                 available: function () {
                     return !0
@@ -1581,10 +1581,10 @@
             },
             time: {
                 title: function () {
-                    return 'Time warp <span class="num">10</span> minutes'
+                    return '时间扭曲 <span class="num">10</span> 分钟'
                 },
                 dlgText: function () {
-                    return 'jump into the future by <span class="num">10</span> minutes'
+                    return '跳跃到未来 <span class="num">10</span> 分钟'
                 },
                 available: function () {
                     return !0
@@ -1596,15 +1596,15 @@
             },
             paint: {
                 title: function () {
-                    return "Get full bucket of paint"
+                    return "得到满桶的颜料"
                 },
                 dlgText: function () {
-                    return "get full bucket of paint"
+                    return "得到满桶的颜料"
                 },
                 available: function () {
                     return 60 < (ia() - b.paint) / Va()
                 },
-                unavailableText: "Available if paint restoration takes more than 1 minute",
+                unavailableText: "如果油漆修复需要超过1分钟，则可用",
                 reward: function () {
                     b.paint = ia()
                 }
@@ -1613,7 +1613,7 @@
         B = [{
             name: "Simple brush",
             shortName: "Simple",
-            descr: "The simple thin brush uses a very small amount of paint.",
+            descr: "简单的薄刷使用非常少量的油漆。",
             price: 0,
             strength: 1,
             consumption: .001,
@@ -1660,7 +1660,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: "起初你有一个空的画布，一个简单的画笔和一小桶油漆。 单击第一个画布以开始绘制第一张照片。",
+                text: "最开始的时候你有一个空画布，一个简易画笔以及一小桶颜料。点击第一个画布，开始绘制你的第一个作品。",
                 highlightElements: !0
             }, {
                 name: "layer1",
@@ -1673,7 +1673,7 @@
                 finishFnc: function () {
                     return 0 < b.achievementsLevel[C.achClicker]
                 },
-                text: "单击画布以绘制第一张照片的草图。",
+                text: "点击画布，来绘制你第一幅画的素描。",
                 highlightElements: !0
             }, {
                 name: "1stAch",
@@ -1686,7 +1686,7 @@
                 finishFnc: function () {
                     return "clickTabAchievements" == b.tutorial.lastClickEvent
                 },
-                text: "恭喜你，你已经获得了你的第一个成就！ 单击“成就”选项卡以查看您的成就。",
+                text: "恭喜你，你获得了第一个成就！点击成就页面来查看你的成就。",
                 highlightElements: !0
             }, {
                 name: "achSuperClicker",
@@ -1699,7 +1699,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: '您已获得<span class ="num"> 10 </span>次点击的“超级点击者” 成就。 您的点击效果x2！ 继续点击可进一步增加此值。',
+                text: '你点击了 <span class="num">10</span> 次。所以你获得了“超级点击者”成就。你的点击效果现在变为原来的2倍！继续点击来获得更多成就。',
                 highlightElements: !0
             }, {
                 name: "achOther",
@@ -1712,7 +1712,7 @@
                 finishFnc: function () {
                     return !1
                 },
-                text: "观看此页面了解每项成就的进展情况。 每项成就都会为您带来宝贵的提升。",
+                text: "在这个页面能查看你所有成就的进度。每个成就都会给你一个有用的加成。",
                 highlightElements: !0
             }, {
                 name: "achQualImpr",
@@ -1738,7 +1738,7 @@
                 finishFnc: function () {
                     return "clickTabWorkshop" == b.tutorial.lastClickEvent
                 },
-                text: "单击Workshop选项卡返回您的工作室并继续绘图。",
+                text: "单击画室选项卡返回您的工作室并继续绘图。",
                 highlightElements: !0
             }, {
                 name: "layer1progress",
@@ -2207,7 +2207,7 @@ function cnText(text){
     var cntext="";
     var temp=text;
     if(temp=="Workshop"){
-        cntext="工作台"
+        cntext="画室"
     }else if(temp==""){
         cntext=""
     }else{

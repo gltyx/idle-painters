@@ -1,4 +1,4 @@
-# 画家放置（Idle Painters）
+# 放置画家（Idle Painters）
 
 ### 汉化版：https://likexia.gitee.io/idle-painters
 
