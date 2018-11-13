@@ -304,9 +304,9 @@
                                     <div class="list-group-item list-group-item-warning">
                                         <h4 class=list-group-item-heading>{{item.name}} {{achCtr.achievementsLevel()[$index] | bignum}}<span ng-if=item.levelMax> / {{item.levelMax}}</span></h4>
                                         <p class=list-group-item-text ng-bind-html=item.descr>
-                                            <p class=list-group-item-text ng-if=achCtr.achievementsMult()[$index]>Current multiplier: x{{achCtr.achievementsMult()[$index] | bignum:1}}</p>
+                                            <p class=list-group-item-text ng-if=achCtr.achievementsMult()[$index]>当前倍数: x{{achCtr.achievementsMult()[$index] | bignum:1}}</p>
                                             <uibm-progressbar max=achCtr.getAchievementReq($index) value=achCtr.achievementStats()[$index] ng-if=!achCtr.isAchievementLevelCap($index)>{{achCtr.achievementStats()[$index] | bignum}} / {{achCtr.getAchievementReq($index) | bignum}}</uibm-progressbar>
-                                            <p class="list-group-item-text achievement-max" ng-if=achCtr.isAchievementLevelCap($index)>MAX</div>
+                                            <p class="list-group-item-text achievement-max" ng-if=achCtr.isAchievementLevelCap($index)>最大</div>
                                 </div>
                             </div>
                         </div>
@@ -336,7 +336,7 @@
                         </div>例如: {{1e11+1 | bignum}}
                         <hr>
                         <div ng-if=isPictureQualityImproverActive()>
-                            <div class=content-block><b>The picture quality auto-improve interval in seconds</b>
+                            <div class=content-block><b>图像质量自动改善间隔，以秒为单位</b>
                                 <br>
                                 <form>
                                     <label class=radio-inline ng-repeat="value in setsCtr.pictureAutoImproveIntervalList">
@@ -372,12 +372,12 @@
                             <div class=col-sm-7><b>跳过时间</b>:
                                 <div class=btn-group role=group>
                                     <button class="btn btn-default" ng-click=dbgCtr.skipTime(60) type=button>1 分钟</button>
-                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(300) type=button>5 min</button>
-                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(600) type=button>10 mins</button>
-                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(3600) type=button>1 hour</button>
-                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(86400) type=button>1 day</button>
-                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(2592000) type=button ng-if=0>1 month</button>
-                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(31536000) type=button ng-if=0>1 year</button>
+                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(300) type=button>5 分钟</button>
+                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(600) type=button>10 分钟</button>
+                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(3600) type=button>1 小时</button>
+                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(86400) type=button>1 天</button>
+                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(2592000) type=button ng-if=0>1 月</button>
+                                    <button class="btn btn-default" ng-click=dbgCtr.skipTime(31536000) type=button ng-if=0>1 年</button>
                                 </div>
                             </div>
                             <div class=col-sm-3>
