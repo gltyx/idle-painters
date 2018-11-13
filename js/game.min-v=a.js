@@ -852,7 +852,7 @@
 
     function Kc() {
         var a = this;
-        a.adsUrl = "http://r.almostidle.com/";
+        a.adsUrl = "https://r.almostidle.com/";
         a.storageClientId = "AiAdsClientId";
         a.clientId = 0;
         a.adId = 0;
