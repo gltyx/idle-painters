@@ -133,7 +133,7 @@
                                     <div class="text-center panel-body">
                                         <div ng-class="{'tutorial-highlight':isTutorialStepNameHighlight('selectMagicBrush')}"><b>画笔</b>
                                             <br>
-                                            <div class=btn-group role=group>
+                                            <div class="btn-group shuazi" role=group>
                                                 <button class="btn btn-default" ng-click=selectBrush($index) type=button ng-disabled=!isBrushBought($index) ng-class="{active:currentBrushId() == $index}" ng-repeat="item in brushList">{{item.shortName}}</button>
                                             </div>
                                             <br>{{getBrushStrength(currentBrushId()) | bignum:0:3}} 像素/点击
