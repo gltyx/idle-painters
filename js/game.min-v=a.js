@@ -200,7 +200,7 @@
                 name: "累计赚取的金钱"
             },
             paintSpent: {
-                name: "累计使用颜料"
+                name: "累计使用油漆"
             },
             pixels: {
                 name: "累计画的像素"
@@ -1523,8 +1523,8 @@
             achQualityImprover: 3
         },
         M = [{
-            name: "Super clicker",
-            descr: "It makes your clicks x2 stronger at each achievement level. Continue clicking to get this achievement.",
+            name: "超级点击器",
+            descr: "它使您点击效果在上一级的基础上 x2，例如1级是x2、2级是x4、3级是x8、4级是x16...以此类推。 继续单击以获得更高级的成就。",
             reqValue: [],
             reqValueFnc: function (a) {
                 return Math.pow(10,
@@ -1534,8 +1534,8 @@
             updateStatFnc: null,
             mult: 2
         }, {
-            name: "Big paint bucket",
-            descr: "It makes the paint bucket x2 bigger at each achievement level. Continue using the paint to get this achievement.",
+            name: "大油漆桶",
+            descr: "它使您的油漆桶容量在上一级的基础上 x2，例如1级是x2、2级是x4、3级是x8、4级是x16...以此类推。 继续单击以获得更高级的成就。",
             reqValue: [],
             reqValueFnc: function (a) {
                 return Math.pow(1E3, a + 1)
@@ -1544,8 +1544,8 @@
             updateStatFnc: null,
             mult: 2
         }, {
-            name: "Fast paint bucket replenishment",
-            descr: "Your paint bucket is replenished x2 faster at each achievement level. To get this achievement empty the paint bucket to less than 5% and then wait until it is fully replenished.",
+            name: "快速油漆桶补货",
+            descr: "它使您的油漆桶补货速度在上一级的基础上 x2，例如1级是x2、2级是x4、3级是x8、4级是x16...以此类推。 为了达到这个目的，将油漆桶清空至小于5％，然后等待它完全补充。",
             reqValue: [],
             reqValueFnc: function (a) {
                 return Math.pow(10, a)
@@ -1554,8 +1554,8 @@
             updateStatFnc: null,
             mult: 2
         }, {
-            name: "Picture quality improver",
-            descr: 'Improve the quality of any <span class="num">10</span> pictures to level <span class="num">10</span> or greater to get this achievement. This will allow your helpers to improve the quality of the selected picture when the game is closed for more than <span class="num">' + Da / 60 + "</span> minutes.",
+            name: "图片质量改进剂",
+            descr: '将任意 <span class="num"> 10 </span> 张图片的质量提升至 <span class ="num"> 10 </span> 级或更高级别以获得此成就。当游戏关闭超过 <span class="num">' + Da / 60 + "</span> 分钟时，这将允许您的助手提高所选图片的质量。",
             reqValue: [10],
             reqValueFnc: null,
             levelMax: 1,
@@ -1596,15 +1596,15 @@
             },
             paint: {
                 title: function () {
-                    return "得到满桶的颜料"
+                    return "得到满桶的油漆"
                 },
                 dlgText: function () {
-                    return "得到满桶的颜料"
+                    return "得到满桶的油漆"
                 },
                 available: function () {
                     return 60 < (ia() - b.paint) / Va()
                 },
-                unavailableText: "如果油漆修复需要超过1分钟，则可用",
+                unavailableText: "如果油漆补货需要超过1分钟，则可用",
                 reward: function () {
                     b.paint = ia()
                 }
@@ -1628,7 +1628,7 @@
         }, {
             name: "魔术刷子",
             shortName: "魔术",
-            descr: "酷炫的魔术笔使用了大量的颜料，但它可以同时创建大量的像素。",
+            descr: "酷炫的魔术笔使用了大量的油漆，但它可以同时创建大量的像素。",
             price: 100,
             strength: 5,
             consumption: .2,
@@ -1660,7 +1660,7 @@
                 finishFnc: function () {
                     return "Workshop" == t
                 },
-                text: "最开始的时候你有一个空画布，一个简易画笔以及一小桶颜料。点击第一个画布，开始绘制你的第一个作品。",
+                text: "最开始的时候你有一个空画布，一个简易画笔以及一小桶油漆。点击第一个画布，开始绘制你的第一个作品。",
                 highlightElements: !0
             }, {
                 name: "layer1",
