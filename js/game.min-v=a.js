@@ -1524,7 +1524,7 @@
         },
         M = [{
             name: "超级点击器",
-            descr: "它使您点击效果在上一级的基础上 x2，例如1级是x2、2级是x4、3级是x8、4级是x16...以此类推。 继续单击以获得更高级的成就。",
+            descr: "它使您点击效果在上一级的基础上 x2，例如1级是x2、2级是x4、3级是x8、4级是x16...以此类推。 继续点击以获得更高级的成就。",
             reqValue: [],
             reqValueFnc: function (a) {
                 return Math.pow(10,
@@ -1738,7 +1738,7 @@
                 finishFnc: function () {
                     return "clickTabWorkshop" == b.tutorial.lastClickEvent
                 },
-                text: "单击画室选项卡返回您的工作室并继续绘图。",
+                text: "点击画室选项卡返回您的工作室并继续绘图。",
                 highlightElements: !0
             }, {
                 name: "layer1progress",
@@ -1764,7 +1764,7 @@
                 finishFnc: function () {
                     return 1 == A()
                 },
-                text: "继续单击画布以完成草图。",
+                text: "继续点击画布以完成草图。",
                 highlightElements: !1
             }, {
                 name: "layer2",
@@ -1934,7 +1934,7 @@
                 finishFnc: function () {
                     return !I()
                 },
-                text: '使用魔术画笔前，你应该检查你还剩下多少油漆。 如果油漆桶是空的，你就不能使用魔术画笔。 油漆量会自动补充。 要增加油漆桶容量和补油漆速度，请使用“升级”选项卡。<br/>现在单击“将图片质量提高到......”按钮。',
+                text: '使用魔术画笔前，你应该检查你还剩下多少油漆。 如果油漆桶是空的，你就不能使用魔术画笔。 油漆量会自动补充。 要增加油漆桶容量和补油漆速度，请使用“升级”选项卡。<br/>现在点击“将图片质量提高到......”按钮。',
                 highlightElements: !0
             }, {
                 name: "selectMagicBrush",
@@ -2026,7 +2026,7 @@
                 finishFnc: function () {
                     return "Workshop" == t && 1 == b.currentPicture
                 },
-                text: "单击此新画布以选择它进行绘制。",
+                text: "点击此新画布以选择它进行绘制。",
                 highlightElements: !0
             }, {
                 name: "helper1descr",
@@ -2039,7 +2039,7 @@
                 finishFnc: function () {
                     return b.workerParams[0].active
                 },
-                text: "这是你的第一个助手 - 学生画家。 现在他处于不活跃状态。 单击相应的“激活”按钮或将其拖放到另一个位置以激活他。 这个助手可以在以他为起点的周围绘制一部分图片，当他完成它时他会停下来。 如果要让它继续绘画，就要在另一个地方激活他。 之后你可以雇佣另一名助手，他可以从任何一点开始绘制整幅画作。 你也可以升级这个助手，让他能画更大的部分。 现在激活这个助手。",
+                text: "这是你的第一个助手 - 学生画家。 现在他处于不活跃状态。 点击相应的“激活”按钮或将其拖放到另一个位置以激活他。 这个助手可以在以他为起点的周围绘制一部分图片，当他完成它时他会停下来。 如果要让它继续绘画，就要在另一个地方激活他。 之后你可以雇佣另一名助手，他可以从任何一点开始绘制整幅画作。 你也可以升级这个助手，让他能画更大的部分。 现在激活这个助手。",
                 highlightElements: !0
             }, {
                 name: "tutorialEnd",
